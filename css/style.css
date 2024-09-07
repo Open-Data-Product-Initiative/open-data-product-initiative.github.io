@@ -200,6 +200,12 @@ p{
 .testmonail-box  p{
 	margin: 14px 0;
 }
+
+.testmonail-box  p a{
+	color: #FCB601;
+	text-decoration: underline;
+}
+
 .bro{
 	width: 30px;
 	height: 1px;
