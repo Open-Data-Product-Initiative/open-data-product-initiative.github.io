@@ -222,10 +222,13 @@ p{
 .custom-nav button{
 	border: none;
 	margin: 0 10px;
+	background-color: transparent;
 }
 .custom-nav button:focus{
 	outline: none;
 }
+
+
 .cta{
 	text-align: center;
 	color: #fff;
