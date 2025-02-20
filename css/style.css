@@ -118,7 +118,41 @@ p{
 #hero-lf-logo{
 	margin-top: 100px;
 }
+.partner-section {
+    background-color: #6b2c91;
+    padding: 30px 0;
+    margin-top: -1px; /* To ensure no gap with wave image above */
+}
 
+.partner-section h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.partner-logos img {
+    height: 70px;
+    width: auto;
+    filter: brightness(0) invert(1); /* Makes logos white */
+}
+
+@media (max-width: 768px) {
+    .partner-logos {
+        gap: 30px;
+    }
+    
+    .partner-logos img {
+        height: 50px;
+    }
+}
 .gobal-btn{
 	width: 100%;
 	margin: 30px 0;
