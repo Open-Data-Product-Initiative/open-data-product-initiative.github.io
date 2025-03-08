@@ -703,6 +703,25 @@
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 	<!-- main.js -->
 	<script src="js/main.js"></script>
+
+	<!-- Chat Window from n8n -->
+	<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'https://zman.app.n8n.cloud/webhook/6b511881-5330-4e56-9dff-0b0d3e131fb8/chat',
+	i18n: {
+		en: {
+			title: 'We\'re excited to have you here :)',
+			subtitle: "Welcome to the Open (Source) Data Product Specification community!",
+			footer: '',
+			getStarted: 'New Conversation',
+			inputPlaceholder: 'Type your question..',
+		},
+	},
+	});
+</script>
 </body>
 
 </html>

@@ -449,3 +449,28 @@ footer a {
 footer a:hover {
   color: #fff;
 }
+
+/**   Chat Window  style */
+.chat-window-wrapper .chat-window-toggle{
+	background: #5f1c87 !important;
+}
+
+.chat-layout .chat-header {
+	background: #5f1c87 !important;
+}
+
+.chat-layout .chat-header .chat-header-title {
+	color: #fff !important;
+}
+
+.chat-layout .chat-header h1 {
+	font-size: 1.5rem !important;
+}
+
+.chat-layout .chat-header p {
+	font-size: 0.9rem !important;
+}
+
+.chat-message p {
+	font-size: 0.9rem !important;
+}
