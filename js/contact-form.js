@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(contactForm);
             
             // Use fetch to submit the form
-            fetch('https://formsubmit.co/jarkko@vimo.fi', {
+            fetch('https://formsubmit.co/6d2dc808c880cc3a866c6f6e25e3d857', {
                 method: 'POST',
                 body: formData
             })
