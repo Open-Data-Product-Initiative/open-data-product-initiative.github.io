@@ -37,6 +37,19 @@ $(document).ready(function () {
   // Flag to track if odometers have been animated
   var odometersAnimated = false;
   var smartCitiesOdometer, startupsOdometer, hubsOdometer;
+  var isMobile = window.innerWidth < 768;
+
+  // Function to detect if element is in viewport with offset
+  function isInViewport(element, offset = 0) {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight - offset) &&
+      rect.bottom >= offset &&
+      rect.left <= window.innerWidth &&
+      rect.right >= 0
+    );
+  }
 
   // Initialize odometers once on page load
   function initializeOdometers() {
@@ -46,23 +59,18 @@ $(document).ready(function () {
     var hubsEl = document.getElementById('hubs-count');
 
     if (smartCitiesEl && startupsEl && hubsEl) {
-      // Create odometers with their final values to avoid flickering
-      var smartCitiesTarget = parseInt(smartCitiesEl.getAttribute('data-count'), 10);
-      var startupsTarget = parseInt(startupsEl.getAttribute('data-count'), 10);
-      var hubsTarget = parseInt(hubsEl.getAttribute('data-count'), 10);
-
       // First set inner text to 0
       smartCitiesEl.innerText = '0';
       startupsEl.innerText = '0';
       hubsEl.innerText = '0';
 
-      // Create odometers
+      // Create odometers with adjusted durations for mobile
       smartCitiesOdometer = new Odometer({
         el: smartCitiesEl,
         value: 0,
         theme: 'minimal',
         format: '',
-        duration: 1500,
+        duration: isMobile ? 1200 : 1500,
         animation: 'count'
       });
 
@@ -71,7 +79,7 @@ $(document).ready(function () {
         value: 0,
         theme: 'minimal',
         format: '',
-        duration: 2000,
+        duration: isMobile ? 1600 : 2000,
         animation: 'count'
       });
 
@@ -80,12 +88,16 @@ $(document).ready(function () {
         value: 0,
         theme: 'minimal',
         format: '',
-        duration: 1200,
+        duration: isMobile ? 1000 : 1200,
         animation: 'count'
       });
 
-      // Set up scroll handler
-      window.addEventListener('scroll', handleScroll);
+      // Set up scroll handler - with debounce for better performance
+      var scrollTimeout;
+      window.addEventListener('scroll', function () {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(handleScroll, 50);
+      });
 
       // Check immediately in case already visible
       handleScroll();
@@ -100,10 +112,11 @@ $(document).ready(function () {
     var statsSection = document.getElementById('partnership');
     if (!statsSection) return;
 
-    var rect = statsSection.getBoundingClientRect();
+    // Use a smaller offset for mobile
+    var viewportOffset = isMobile ? 50 : 100;
 
     // If stats section is in viewport
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
+    if (isInViewport(statsSection, viewportOffset)) {
       // Trigger animation
       animateOdometers();
 
@@ -132,6 +145,10 @@ $(document).ready(function () {
     var startupsFormatted = startupsEl.getAttribute('data-formatted') || startupsTarget;
 
     // Update odometers - with a short delay between each one
+    // Use shorter delays on mobile
+    var stepDelay = isMobile ? 150 : 200;
+    var startDelay = isMobile ? 300 : 400;
+
     setTimeout(function () {
       smartCitiesOdometer.update(smartCitiesTarget);
 
@@ -143,7 +160,7 @@ $(document).ready(function () {
         if (startupsEl.getAttribute('data-formatted')) {
           setTimeout(function () {
             startupsEl.innerHTML = startupsEl.getAttribute('data-formatted');
-          }, 800);
+          }, isMobile ? 600 : 800);
         }
 
         setTimeout(function () {
@@ -151,11 +168,34 @@ $(document).ready(function () {
 
           // Set flag to indicate animation is complete
           odometersAnimated = true;
-        }, 200);
-      }, 200);
-    }, 400);
+        }, stepDelay);
+      }, stepDelay);
+    }, startDelay);
   }
+
+  // Check for window resize and update mobile flag
+  window.addEventListener('resize', function () {
+    isMobile = window.innerWidth < 768;
+  });
 
   // Initialize everything
   initializeOdometers();
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+
+      const targetElement = document.querySelector(targetId);
+      if (!targetElement) return;
+
+      window.scrollTo({
+        top: targetElement.offsetTop - 80, // 80px offset for header
+        behavior: 'smooth'
+      });
+    });
+  });
 });

@@ -237,11 +237,11 @@
 	<section class="section-padding" id="partnership">
 		<div class="container">
 			<div class="partnership-content text-center wow fadeInUp" data-wow-delay=".5s">
-				<h1 class="main-heading">EMPOWERING DATA ECOSYSTEMS</h1>
-				<h2 class="sub-heading">FIWARE and ODPS Join Forces for Interoperability</h2>
+				<h1 class="main-heading">EMPOWERING<br>DATA ECOSYSTEMS</h1>
+				<h2 class="sub-heading">FIWARE and ODPS Scaling Interoperability Together</h2>
 
-				<div class="stats-container d-flex justify-content-around mt-5">
-					<div class="stat-item">
+				<div class="stats-container">
+					<div class="stat-item wow fadeInUp" data-wow-delay=".6s">
 						<div class="stat-box">
 							<div id="smart-cities-count" class="odometer" data-count="350">0</div>
 							<span class="plus-sign">+</span>
@@ -249,7 +249,7 @@
 						<div class="stat-label">SMART CITIES</div>
 					</div>
 
-					<div class="stat-item">
+					<div class="stat-item wow fadeInUp" data-wow-delay=".8s">
 						<div class="stat-box">
 							<div id="startups-count" class="odometer" data-count="1000" data-formatted="1,000">0</div>
 							<span class="plus-sign">+</span>
@@ -257,7 +257,7 @@
 						<div class="stat-label">STARTUPS AND SMES</div>
 					</div>
 
-					<div class="stat-item">
+					<div class="stat-item wow fadeInUp" data-wow-delay="1s">
 						<div class="stat-box">
 							<div id="hubs-count" class="odometer" data-count="40">0</div>
 							<span class="plus-sign">+</span>
@@ -266,12 +266,18 @@
 					</div>
 				</div>
 
-				<div class="logos-container d-flex justify-content-around align-items-center mt-5">
-					<div class="logo-item">
+				<div class="logos-container">
+					<div class="logo-item wow fadeInUp" data-wow-delay="1.2s">
 						<img src="images/loog-2025.png" alt="ODPS Logo" class="odps-logo">
 					</div>
-					<div class="logo-item">
+					<div class="logo-item wow fadeInUp" data-wow-delay="1.4s">
 						<img src="images/fiware.png" alt="FIWARE Logo" class="fiware-logo">
+					</div>
+				</div>
+
+				<div class="partnership-cta wow fadeInUp" data-wow-delay="1.6s">
+					<div class="gobal-btn">
+						<a href="#contact">Reach out to forge an exciting partnership!</a>
 					</div>
 				</div>
 			</div>
@@ -883,8 +889,23 @@
 						</div>
 
 						<div class="form-group">
+							<label for="subject">Subject</label>
+							<select class="form-control" id="subject" name="subject" required style="height: 50px;">
+								<option value="" disabled selected>Please select a subject</option>
+								<option value="Partnership Request">Partnership Request</option>
+								<option value="Feature Request">Feature Request</option>
+								<option value="Join Technical Steering Committee">Join Technical Steering Committee
+								</option>
+								<option value="Share Use Case">Share Use Case or Testimonial</option>
+								<option value="ODPS Implementation">ODPS Implementation Help</option>
+								<option value="General Inquiry">General Inquiry</option>
+							</select>
+						</div>
+
+						<div class="form-group">
 							<label for="message">Message</label>
-							<textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+							<textarea class="form-control" id="message" name="message" rows="5" required
+								placeholder="I'm interested in partnering with ODPS to create a strong collaboration. Our organization aims to join forces and contribute to the data ecosystem for mutual growth and innovation."></textarea>
 						</div>
 						<div class="g-recaptcha" data-sitekey="6LetRPQqAAAAALk2LYXejb0IQGPTwwBFMaYUeTFe"></div>
 						<div class="text-center mt-4">
@@ -982,6 +1003,68 @@
 	</script>
 	<script src="js/contact-form.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+	<script>
+		// Function to handle CTA clicks
+		function handleCtaClick(subject, message) {
+			// Scroll to contact form
+			document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+
+			// Set the subject in dropdown
+			const subjectField = document.getElementById('subject');
+			for (let i = 0; i < subjectField.options.length; i++) {
+				if (subjectField.options[i].value === subject) {
+					subjectField.selectedIndex = i;
+					break;
+				}
+			}
+
+			// Set example message text
+			document.getElementById('message').value = message;
+		}
+
+		// Add click handlers to all CTAs after page loads
+		document.addEventListener('DOMContentLoaded', function () {
+			// Define example messages for each subject
+			const messageTemplates = {
+				'Partnership Request': "I'm interested in partnering with ODPS to create a strong collaboration. Our organization aims to join forces and contribute to the data ecosystem for mutual growth and innovation.",
+				'Feature Request': "I'd like to request a new feature for ODPS. Here are my requirements and how this feature would enhance the specification.",
+				'Join Technical Steering Committee': "I'm interested in joining the ODPS Technical Steering Committee. Here's my background and how I believe I can contribute to the development of ODPS.",
+				'Share Use Case': "I'd like to share our organization's experience with ODPS. Here's how we've implemented it and the benefits we've seen.",
+				'ODPS Implementation': "I need assistance implementing ODPS in our organization. Here are the specific areas where we need guidance.",
+				'General Inquiry': "I have a question about ODPS that isn't covered by the other categories. Here's what I'd like to know."
+			};
+
+			// Set up partnership CTA
+			document.querySelector('.partnership-cta .gobal-btn a').addEventListener('click', function (e) {
+				e.preventDefault();
+				handleCtaClick('Partnership Request', messageTemplates['Partnership Request']);
+			});
+
+			// Set up feature request CTA
+			document.querySelector('#versions .center-btn a').addEventListener('click', function (e) {
+				e.preventDefault();
+				handleCtaClick('Feature Request', messageTemplates['Feature Request']);
+			});
+
+			// Set up join TSC CTA
+			const tscLink = document.querySelector('a[href*="whatsapp.com"]');
+			if (tscLink) {
+				tscLink.addEventListener('click', function (e) {
+					e.preventDefault();
+					handleCtaClick('Join Technical Steering Committee', messageTemplates['Join Technical Steering Committee']);
+				});
+			}
+
+			// Set up share use case CTAs
+			document.querySelectorAll('.cta .gobal-btn a[href*="mailto:jarkko"]').forEach(function (link) {
+				link.addEventListener('click', function (e) {
+					e.preventDefault();
+					handleCtaClick('Share Use Case', messageTemplates['Share Use Case']);
+				});
+			});
+		});
+	</script>
 </body>
 
 </html>

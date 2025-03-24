@@ -696,15 +696,17 @@ footer .col-md-4 {
   margin: 50px 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 #partnership .stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 15px;
   width: auto;
+  transition: all 0.3s ease;
 }
 
 #partnership .stat-box {
@@ -720,6 +722,8 @@ footer .col-md-4 {
   align-items: center;
   margin-bottom: 25px;
   overflow: visible;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 #partnership .stat-label {
@@ -730,6 +734,7 @@ footer .col-md-4 {
   margin-top: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: all 0.3s ease;
 }
 
 /* Odometer specific styling */
@@ -742,11 +747,7 @@ footer .col-md-4 {
   padding: 0 !important;
   margin: 0 !important;
   white-space: nowrap !important;
-}
-
-/* Individual counter styling */
-#startups-count.odometer {
-  font-size: 48px !important;
+  transition: all 0.3s ease;
 }
 
 /* Plus sign styling */
@@ -757,126 +758,299 @@ footer .col-md-4 {
   color: #46007a;
   margin-left: 0;
   line-height: 1;
+  transition: all 0.3s ease;
+}
+
+/* Individual counter styling */
+#startups-count.odometer {
+  font-size: 48px !important;
 }
 
 #startups-count .plus-sign {
   font-size: 48px;
 }
 
-/* Custom logo styling */
-#partnership .odps-logo {
-  max-width: 240px;
-  filter: brightness(0) invert(1);
-  /* Makes the logo white */
+#partnership .logos-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
-#partnership .fiware-logo {
-  max-width: 240px;
-  filter: brightness(0) invert(1);
-  /* Makes the logo white */
+#partnership .logo-item {
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-/* Responsive Odometer */
+#partnership .logo-item img {
+  max-width: 220px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+#partnership .partnership-cta {
+  margin-top: 40px;
+}
+
+#partnership .gobal-btn a {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  transition: all 0.3s ease;
+  display: inline-block;
+  max-width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+}
+
+#partnership .gobal-btn a:hover {
+  background: #fff;
+  color: #46007a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Medium screens (tablets, small laptops) */
 @media (max-width: 992px) {
+  #partnership {
+    padding: 60px 0;
+  }
+
+  #partnership .main-heading {
+    font-size: 46px;
+  }
+
+  #partnership .sub-heading {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  #partnership .stats-container {
+    margin: 40px 0;
+    gap: 20px;
+  }
+
   #partnership .stat-box {
     width: 220px;
     height: 120px;
-    padding: 15px 20px;
+    padding: 12px 20px;
   }
 
   .odometer,
   .plus-sign {
-    font-size: 48px !important;
+    font-size: 46px !important;
   }
 
   #startups-count.odometer {
-    font-size: 42px !important;
+    font-size: 40px !important;
+  }
+
+  #startups-count .plus-sign {
+    font-size: 40px;
   }
 
   #partnership .stat-label {
     font-size: 24px;
   }
+
+  #partnership .logos-container {
+    margin-top: 40px;
+    gap: 30px;
+  }
+
+  #partnership .logo-item img {
+    max-width: 180px;
+  }
 }
 
+/* Small screens (tablets, large phones) */
 @media (max-width: 768px) {
-  #partnership .stats-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #partnership .stat-item {
-    margin: 15px 0;
-  }
-
-  #partnership .stat-box {
-    width: 280px;
-    margin-bottom: 15px;
+  #partnership {
+    padding: 50px 0;
   }
 
   #partnership .main-heading {
-    font-size: 40px;
+    font-size: 38px;
+    margin-bottom: 15px;
   }
 
   #partnership .sub-heading {
     font-size: 24px;
+    margin-bottom: 30px;
   }
 
-  #partnership .stat-label {
-    font-size: 24px;
-    margin-bottom: 10px;
+  #partnership .stats-container {
+    margin: 30px auto;
+    gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 650px;
   }
-}
 
-@media (max-width: 480px) {
+  #partnership .stat-item {
+    width: 100%;
+  }
+
   #partnership .stat-box {
-    width: 250px;
+    width: 200px;
     height: 110px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .odometer,
   .plus-sign {
-    font-size: 42px !important;
+    font-size: 40px !important;
   }
 
   #startups-count.odometer {
     font-size: 36px !important;
   }
 
+  #startups-count .plus-sign {
+    font-size: 36px;
+  }
+
   #partnership .stat-label {
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  #partnership .logos-container {
+    margin-top: 30px;
+    gap: 20px;
+  }
+
+  #partnership .logo-item img {
+    max-width: 160px;
+  }
+
+  #partnership .partnership-cta {
+    margin-top: 25px;
+  }
+
+  #partnership .gobal-btn {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-/* Responsive adjustments for partnership section */
-@media (max-width: 1200px) {
+/* Extra small screens (phones) */
+@media (max-width: 480px) {
+  #partnership {
+    padding: 40px 0;
+  }
+
+  #partnership .main-heading {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  #partnership .sub-heading {
+    font-size: 20px;
+    margin-bottom: 25px;
+    padding: 0 15px;
+  }
+
   #partnership .stats-container {
-    flex-wrap: wrap;
-    justify-content: center;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 
   #partnership .stat-box {
-    margin: 15px;
+    width: 180px;
+    height: 100px;
+    padding: 10px 15px;
+    border-radius: 20px;
+  }
+
+  .odometer,
+  .plus-sign {
+    font-size: 36px !important;
+  }
+
+  #startups-count.odometer {
+    font-size: 32px !important;
+  }
+
+  #startups-count .plus-sign {
+    font-size: 32px;
+  }
+
+  #partnership .stat-label {
+    font-size: 20px;
+    margin-top: 8px;
+  }
+
+  #partnership .logos-container {
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  #partnership .logo-item img {
+    max-width: 140px;
+  }
+
+  #partnership .partnership-cta {
+    margin-top: 20px;
+  }
+
+  #partnership .gobal-btn {
+    max-width: 100%;
+  }
+
+  #partnership .gobal-btn a {
+    padding: 12px 20px;
+    font-size: 16px;
+    width: auto;
+    max-width: 280px;
   }
 }
 
-.odometer.odometer-auto-theme,
-.odometer.odometer-theme-minimal {
-  display: inline-block;
-}
+/* Extra extra small screens */
+@media (max-width: 360px) {
+  #partnership .main-heading {
+    font-size: 28px;
+  }
 
-.odometer.odometer-auto-theme .odometer-digit,
-.odometer.odometer-theme-minimal .odometer-digit {
-  display: inline-block;
-  position: relative;
-  margin: 0 1px;
-}
+  #partnership .sub-heading {
+    font-size: 18px;
+  }
 
-#partnership .logos-container {
-  margin-top: 50px;
-}
+  #partnership .stat-box {
+    width: 160px;
+    height: 90px;
+  }
 
-#partnership .logo-item img {
-  max-width: 250px;
-  height: auto;
-  margin: 0 30px;
+  .odometer,
+  .plus-sign {
+    font-size: 32px !important;
+  }
+
+  #startups-count.odometer {
+    font-size: 28px !important;
+  }
+
+  #startups-count .plus-sign {
+    font-size: 28px;
+  }
+
+  #partnership .stat-label {
+    font-size: 18px;
+  }
+
+  #partnership .gobal-btn a {
+    padding: 10px 15px;
+    font-size: 14px;
+    max-width: 250px;
+  }
 }
