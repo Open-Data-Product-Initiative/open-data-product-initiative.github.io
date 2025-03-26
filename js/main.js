@@ -198,4 +198,6 @@ $(document).ready(function () {
       });
     });
   });
+
+  // Tab functionality is now handled by switchTab() function in HTML
 });
