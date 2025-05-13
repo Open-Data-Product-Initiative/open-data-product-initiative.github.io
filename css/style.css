@@ -1054,3 +1054,39 @@ footer .col-md-4 {
     max-width: 250px;
   }
 }
+
+/* Brand background color utilities */
+.bg-purple {
+  background: #5f1c87 !important;
+  color: #fff !important;
+}
+.bg-yellow {
+  background: #fcb601 !important;
+  color: #000 !important;
+}
+.bg-light-purple {
+  background: #fbf8fd !important;
+  color: #222 !important;
+}
+.bg-dark-purple {
+  background: #1e0a2e !important;
+  color: #fff !important;
+}
+.bg-black {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+/* Utility for center alignment */
+.text-center {
+  text-align: center !important;
+}
+
+.section-title-area {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+.text-black {
+  color: #222 !important;
+}
