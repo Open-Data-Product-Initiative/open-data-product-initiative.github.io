@@ -136,10 +136,17 @@ p {
   /* Override Bootstrap's navbar-expand-lg behavior */
   .navbar-expand-lg .navbar-toggler {
     display: block !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    border-radius: 4px !important;
-    padding: 8px 12px !important;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 8px !important;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .navbar-expand-lg .navbar-toggler:hover {
+    background: none !important;
+    border: none !important;
   }
   
   .navbar-expand-lg .navbar-collapse {
@@ -1739,8 +1746,8 @@ html, body {
   
   .navbar-toggler-icon {
     background: none;
-    width: 24px;
-    height: 18px;
+    width: 32px;
+    height: 24px;
     position: relative;
     transform: rotate(0deg);
     transition: 0.3s ease-in-out;
@@ -1748,18 +1755,44 @@ html, body {
   }
   
   .navbar-toggler-icon i {
-    font-size: 24px;
-    color: #fff;
+    font-size: 32px;
+    color: #ffffff !important;
     transition: all 0.3s ease;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    text-shadow: none;
     display: block !important;
+    line-height: 1;
+  }
+  
+  /* Fallback for burger icon if Font Awesome doesn't load */
+  .navbar-toggler-icon::before {
+    content: "☰";
+    font-size: 28px;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    font-family: Arial, sans-serif;
+    z-index: 1;
+  }
+  
+  .navbar-toggler-icon i {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Hide fallback when Font Awesome loads */
+  .navbar-toggler-icon i.fas::before,
+  .navbar-toggler-icon i.fa::before {
+    display: none;
   }
   
   /* Ensure burger icon is visible */
   .navbar-toggler-icon {
     display: inline-block !important;
-    width: 24px;
-    height: 18px;
+    width: 32px;
+    height: 24px;
     vertical-align: middle;
     background: none !important;
     border: none !important;
@@ -1844,7 +1877,8 @@ html, body {
   }
   
   .navbar-toggler-icon i {
-    font-size: 20px;
+    font-size: 28px;
+    color: #ffffff !important;
   }
 }
 

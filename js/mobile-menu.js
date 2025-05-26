@@ -1,15 +1,13 @@
 // Mobile Menu Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Wait a bit to ensure all elements are loaded
-    setTimeout(function() {
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        const body = document.body;
-        
-        if (!navbarToggler || !navbarCollapse) {
-            console.log('Mobile menu elements not found');
-            return;
-        }
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    const body = document.body;
+    
+    if (!navbarToggler || !navbarCollapse) {
+        console.log('Mobile menu elements not found');
+        return;
+    }
     
     // Create overlay element
     const overlay = document.createElement('div');
@@ -38,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navbarCollapse.classList.add('show');
         overlay.classList.add('show');
         navbarToggler.setAttribute('aria-expanded', 'true');
-        body.classList.add('menu-open'); // Prevent body scroll
+        body.classList.add('menu-open');
     }
     
     // Close menu function
@@ -46,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navbarCollapse.classList.remove('show');
         overlay.classList.remove('show');
         navbarToggler.setAttribute('aria-expanded', 'false');
-        body.classList.remove('menu-open'); // Restore body scroll
+        body.classList.remove('menu-open');
     }
     
     // Event listeners
@@ -85,5 +83,4 @@ document.addEventListener('DOMContentLoaded', function() {
             closeMenu();
         }
     });
-    }, 100); // End setTimeout
 }); 

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Blog - Open Data Product Specification</title>
+	<!-- Main Style Sheet -->
+
+	<meta name="description"
+		content="Read the latest insights and updates about Open Data Product Specification (ODPS) from our blog.">
+	<meta name="keywords"
+		content="Open Data Products, Data Economy, Data Product Governance, ODPS, Data Monetization, Blog, Articles">
+	<meta name="author" content="Dr. Jarkko Moilanen">
+	<link rel="canonical" href="https://opendataproducts.org/blog.html">
+	<meta property="og:title" content="Blog | Open Data Product Specification">
+	<meta property="og:description"
+		content="Read the latest insights and updates about Open Data Product Specification (ODPS) from our blog.">
+	<meta property="og:url" content="https://opendataproducts.org/blog.html">
+	<meta property="og:image" content="https://opendataproducts.org/images/social.png">
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel="stylesheet" href="css/animate.css">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+
+	<!-- Bootstrap -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- google Font  -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+
+	<!-- Font awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/b2b7d27ef0.js" crossorigin="anonymous"></script>
+	
+	<!-- Mobile Menu Script -->
+	<script src="js/mobile-menu.js"></script>
+
+	<!-- Axios for API calls -->
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2BRS2DSVKQ"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-2BRS2DSVKQ');
+	</script>
+
+	<style>
+		.blog-container {
+			padding: 100px 0;
+		}
+		
+		.blog-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			gap: 30px;
+			margin-top: 40px;
+		}
+		
+		.blog-card {
+			background: #fff;
+			border-radius: 12px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+			overflow: hidden;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.blog-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+		}
+		
+		.blog-card-image {
+			width: 100%;
+			height: 200px;
+			background-size: cover;
+			background-position: center;
+			background-color: #f0f0f0;
+		}
+		
+		.blog-card-content {
+			padding: 25px;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+		}
+		
+		.blog-card-title {
+			font-size: 20px;
+			font-weight: 600;
+			color: #333;
+			margin-bottom: 15px;
+			line-height: 1.4;
+			flex-grow: 1;
+		}
+		
+		.blog-card-title a {
+			color: inherit;
+			text-decoration: none;
+		}
+		
+		.blog-card-title a:hover {
+			color: #5f1c87;
+		}
+		
+		.blog-card-excerpt {
+			color: #666;
+			font-size: 14px;
+			line-height: 1.6;
+			margin-bottom: 20px;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+		
+		.blog-card-meta {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 12px;
+			color: #999;
+			border-top: 1px solid #eee;
+			padding-top: 15px;
+			margin-top: auto;
+		}
+		
+		.blog-card-author {
+			font-weight: 500;
+		}
+		
+		.blog-card-date {
+			font-style: italic;
+		}
+		
+		.loading-spinner {
+			text-align: center;
+			padding: 60px 0;
+		}
+		
+		.spinner {
+			border: 4px solid #f3f3f3;
+			border-top: 4px solid #5f1c87;
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			animation: spin 1s linear infinite;
+			margin: 0 auto 20px;
+		}
+		
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+		
+		.error-message {
+			text-align: center;
+			padding: 60px 0;
+			color: #666;
+		}
+		
+		.error-message i {
+			font-size: 48px;
+			color: #ddd;
+			margin-bottom: 20px;
+		}
+		
+		@media (max-width: 768px) {
+			.blog-header h1 {
+				font-size: 36px;
+			}
+			
+			.blog-grid {
+				grid-template-columns: 1fr;
+				gap: 20px;
+			}
+			
+			.blog-card-content {
+				padding: 20px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<section class="header">
+		<nav class="navbar navbar-expand-lg wow fadeInDown" data-wow-delay=".3s">
+			<div class="container">
+				<a class="navbar-brand" href="index.html"><img src="images/loog-2025.png" alt="ODPS Logo"></a>
+				<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a href="about.html">About</a>
+						</li>
+						<li class="nav-item">
+							<a href="versions.html">Versions</a>
+						</li>
+						<li class="nav-item">
+							<a href="use-cases.html">Use Cases</a>
+						</li>
+						<li class="nav-item">
+							<a href="development.html">Development</a>
+						</li>
+						<li class="nav-item">
+							<a href="blog.html" class="active">Blog</a>
+						</li>
+						<li class="nav-item">
+							<a href="contact.html">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</section>
+
+	<!-- Page Title Section -->
+	<section class="page-title bg-purple text-center section-title-area">
+		<div class="container">
+			<h1 class="wow fadeInUp text-center" data-wow-delay=".3s">Latest <span>Insights</span></h1>
+			<p class="wow fadeInUp text-center" data-wow-delay=".5s">Stay updated with the latest developments, insights, and best practices in the world of Open Data Product Specification</p>
+		</div>
+	</section>
+
+	<section class="blog-container">
+		<div class="container">
+
+			<div id="loading" class="loading-spinner">
+				<div class="spinner"></div>
+				<p>Loading latest blog posts...</p>
+			</div>
+
+			<div id="error" class="error-message" style="display: none;">
+				<i class="fas fa-exclamation-triangle"></i>
+				<h3>Unable to load blog posts</h3>
+				<p>Please try again later or visit our <a href="https://blog.opendataproducts.org" target="_blank">blog directly</a>.</p>
+			</div>
+
+			<div id="blog-posts" class="blog-grid" style="display: none;">
+				<!-- Blog posts will be loaded here -->
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<img src="images/loog-2025.png" alt="ODPS Logo">
+					<p>Open Data Product Specification (ODPS) is a vendor-neutral, machine-readable data product metadata model hosted by the Linux Foundation.</p>
+				</div>
+				<div class="col-md-4">
+					<h3>Quick Links</h3>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="versions.html">Versions</a></li>
+						<li><a href="use-cases.html">Use Cases</a></li>
+						<li><a href="development.html">Development</a></li>
+						<li><a href="blog.html">Blog</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<h3>Connect</h3>
+					<ul>
+						<li><a href="https://github.com/Open-Data-Product-Initiative" target="_blank">GitHub</a></li>
+						<li><a href="https://blog.opendataproducts.org" target="_blank">Medium Blog</a></li>
+						<li><a href="https://linkedin.com/company/open-data-product-initiative" target="_blank">LinkedIn</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Blog JavaScript -->
+	<script src="js/blog.js"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<!-- WOW JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+	<script>
+		new WOW().init();
+	</script>
+</body>
+
+</html> 
