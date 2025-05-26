@@ -9,25 +9,35 @@ $(document).ready(function () {
         items: 3,
         loop: true,
         autoplay: true,
-        autoplayTimeout: 5000,
+        autoplayTimeout: 4000,
         autoplayHoverPause: true,
         nav: false,
         dots: false,
         margin: 30,
         stagePadding: 0,
-        smartSpeed: 800,
+        smartSpeed: 600,
+        slideBy: 1,
+        center: false,
+        mouseDrag: true,
+        touchDrag: true,
+        pullDrag: true,
+        freeDrag: false,
+        startPosition: 0,
         responsive: {
           0: {
             items: 1,
-            margin: 20
+            margin: 20,
+            slideBy: 1
           },
           768: {
             items: 2,
-            margin: 25
+            margin: 25,
+            slideBy: 1
           },
           992: {
             items: 3,
-            margin: 30
+            margin: 30,
+            slideBy: 1
           }
         }
       });

@@ -322,13 +322,15 @@ p {
 .testmonail-box {
   text-align: center;
   width: 100%;
-  min-height: 500px;
-  height: auto;
+  height: 550px;
   background: #fff;
   padding: 30px;
   box-shadow: 0px 4px 20px rgb(0 0 0 / 15%);
   border-radius: 8px;
   transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .testmonail-box:hover {
@@ -361,11 +363,20 @@ p {
 .testmonail-slider {
   position: relative;
   margin-bottom: 60px;
+  overflow: hidden;
+}
+
+.testmonail-slider .owl-carousel {
+  max-width: 100%;
+}
+
+.testmonail-slider .owl-stage-outer {
+  overflow: hidden;
 }
 
 .custom-nav {
   position: absolute;
-  bottom: -50px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -404,17 +415,93 @@ p {
 .owl-carousel .owl-item {
   display: flex;
   align-items: stretch;
+  height: 550px;
+  float: left;
+  backface-visibility: hidden;
 }
 
 .owl-carousel .owl-item .iteam {
   width: 100%;
   display: flex;
+  height: 100%;
 }
 
 .owl-carousel .owl-item .testmonail-box {
+  height: 100%;
+  min-height: 500px;
+  width: 432px;
+  flex: 1;
+}
+
+/* Ensure exactly 3 items visible on desktop */
+@media (min-width: 992px) {
+  .owl-carousel .owl-item {
+    width: calc(33.333% - 20px) !important;
+    margin-right: 30px;
+  }
+  
+  .owl-carousel .owl-stage {
+    display: flex;
+    align-items: stretch;
+  }
+}
+
+.testmonail-box .quote-section {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.testmonail-box .quote-section img {
+  width: 40px !important;
+  height: 40px !important;
+  margin-bottom: 20px;
+}
+
+.testmonail-box .quote-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  font-style: italic;
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+}
+
+.testmonail-box .author-section {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.testmonail-box .author-section img {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  margin: 15px auto;
+  display: block;
+  object-fit: cover;
+}
+
+.testmonail-box .author-section p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.testmonail-box .author-section strong {
+  font-size: 16px;
+  color: #5f1c87;
 }
 
 /* Fallback styles when carousel is not initialized */
@@ -451,11 +538,29 @@ p {
   opacity: 0.7;
 }
 
+/* Tablet responsive styles */
+@media (min-width: 768px) and (max-width: 991px) {
+  .owl-carousel .owl-item {
+    width: calc(50% - 12.5px) !important;
+    margin-right: 25px;
+  }
+}
+
 /* Mobile responsive styles for testimonials */
 @media (max-width: 767px) {
   .testmonail-box {
-    min-height: 400px;
+    height: 450px;
     padding: 20px;
+  }
+  
+  .owl-carousel .owl-item {
+    height: 450px;
+    width: calc(100% - 10px) !important;
+    margin-right: 20px;
+  }
+  
+  .owl-carousel .owl-item .testmonail-box {
+    min-height: 450px;
   }
   
   .custom-nav {
@@ -479,13 +584,34 @@ p {
 
 @media (max-width: 480px) {
   .testmonail-box {
-    min-height: 350px;
+    height: 400px;
     padding: 15px;
+  }
+  
+  .owl-carousel .owl-item {
+    height: 400px;
+  }
+  
+  .owl-carousel .owl-item .testmonail-box {
+    min-height: 400px;
   }
   
   .testmonail-box p {
     font-size: 14px;
     line-height: 1.4;
+  }
+  
+  .testmonail-box .quote-section p {
+    font-size: 14px;
+    -webkit-line-clamp: 4;
+  }
+  
+  .testmonail-box .quote-section {
+    padding: 15px 0;
+  }
+  
+  .testmonail-box .author-section {
+    padding-top: 15px;
   }
 }
 

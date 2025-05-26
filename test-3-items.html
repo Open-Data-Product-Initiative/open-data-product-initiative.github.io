@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Item Carousel Test</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 50px 0;
+            background: #f8f9fa;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .viewport-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        
+        .item-counter {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        
+        .controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .controls button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn-prev { background: #6f42c1; color: white; }
+        .btn-next { background: #e83e8c; color: white; }
+        .btn-play { background: #28a745; color: white; }
+        .btn-pause { background: #dc3545; color: white; }
+        .btn-reset { background: #17a2b8; color: white; }
+        
+        .instructions {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .test-numbers {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            z-index: 10;
+        }
+        
+        #testmonail {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="viewport-info" id="viewport-info">
+        Viewport: <span id="viewport-size"></span>
+    </div>
+    
+    <div class="item-counter" id="item-counter">
+        Visible: <span id="visible-count">0</span> / <span id="total-count">6</span>
+    </div>
+
+    <div class="container">
+        <div class="test-header">
+            <h1>3-Item Carousel Verification</h1>
+            <p><strong>Expected Behavior:</strong></p>
+            <ul style="text-align: left; display: inline-block;">
+                <li>Desktop (≥992px): Show exactly 3 items</li>
+                <li>Tablet (768-991px): Show exactly 2 items</li>
+                <li>Mobile (<768px): Show exactly 1 item</li>
+                <li>Total items: 6 testimonials</li>
+                <li>Auto-advance every 4 seconds</li>
+                <li>Smooth cycling through all items</li>
+            </ul>
+        </div>
+        
+        <div class="instructions">
+            <h4>Test Instructions:</h4>
+            <ol>
+                <li>Observe the number of visible items at current screen size</li>
+                <li>Wait for auto-advance or use navigation buttons</li>
+                <li>Resize browser window to test responsive behavior</li>
+                <li>Verify all 6 testimonials cycle through properly</li>
+                <li>Check that navigation arrows work correctly</li>
+            </ol>
+        </div>
+        
+        <div class="controls">
+            <button class="btn-prev" onclick="goToPrev()">← Previous</button>
+            <button class="btn-pause" onclick="pauseCarousel()">⏸ Pause</button>
+            <button class="btn-play" onclick="playCarousel()">▶ Play</button>
+            <button class="btn-next" onclick="goToNext()">Next →</button>
+            <button class="btn-reset" onclick="resetCarousel()">↻ Reset</button>
+        </div>
+
+        <section id="testmonail" class="section-padding">
+            <div class="container">
+                <div class="title-right">
+                    <h2>6 Testimonials - 3 Item Display Test</h2>
+                    <p>This carousel contains 6 testimonials and should show a maximum of 3 items simultaneously on desktop.</p>
+                </div>
+
+                <div class="testmonail-slider">
+                    <div class="owl-carousel">
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <div class="test-numbers">1</div>
+                                <div class="quote-section">
+                                    <img src="images/quote.png" alt="">
+                                    <p>"We at BASF built our group-wide Data Product concept largely on ODPS and extended it to our specific needs. Reasons to choose ODPS were its maturity especially in complex non-technical aspects."</p>
+                                </div>
+                                <div class="author-section">
+                                    <div class="bro"></div>
+                                    <img src="images/testmonail-0.png" alt="">
+                                    <p><strong>Manfred Sorg</strong><br>
+                                    Group Data Office, <a target="_blank" href="https://www.basf.com/global/en/who-we-are/digitalization">BASF</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <div class="test-numbers">2</div>
+                                <div class="quote-section">
+                                    <img src="images/quote.png" alt="">
+                                    <p>"Infrastructure, security, persistency, services and processes all have their 'as-code' open standards within the Ferris platform. Now this stack is complete in adding ODPS as a unified standard for regionally distributed data owners."</p>
+                                </div>
+                                <div class="author-section">
+                                    <div class="bro"></div>
+                                    <img src="images/testmonail-1.png" alt="">
+                                    <p><strong>Thomas Debus</strong><br>
+                                    Founder & CTO, <a target="_blank" href="https://ferris.ai">Ferris AI</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <div class="test-numbers">3</div>
+                                <div class="quote-section">
+                                    <img src="images/quote.png" alt="">
+                                    <p>"ODPS fosters collaboration. With standardized data descriptions, we can easily integrate with data marketplaces, reaching a wider audience and accelerating innovation"</p>
+                                </div>
+                                <div class="author-section">
+                                    <div class="bro"></div>
+                                    <img src="images/testmonail-2.png" alt="">
+                                    <p><strong>Rajanikanth Thouta</strong><br>
+                                    Executive Director, <a target="_blank" href="https://www.ispatialtec.com/">iSpatial Techno Solutions</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <div class="test-numbers">4</div>
+                                <div class="quote-section">
+                                    <img src="images/quote.png" alt="">
+                                    <p>"Extending X-Road OAS service descriptions with ODPS makes data product-related metadata available in the service catalogue more unified, improves its quality, and enables more automation in the maintenance process."</p>
+                                </div>
+                                <div class="author-section">
+                                    <div class="bro"></div>
+                                    <img src="images/testmonail-3.png" alt="">
+                                    <p><strong>Petteri Kivimäki</strong><br>
+                                    CTO, <a target="_blank" href="https://www.niis.org/">Nordic Institute for Interoperability Solutions</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <div class="test-numbers">5</div>
+                                <div class="quote-section">
+                                    <img src="images/quote.png" alt="">
+                                    <p>"ODPS helps our platform to bridge the gap of discoverability and use of data products in the context of data spaces."</p>
+                                </div>
+                                <div class="author-section">
+                                    <div class="bro"></div>
+                                    <img src="images/testmonail-4.png" alt="">
+                                    <p><strong>Lukas Hohl</strong><br>
+                                    Co-Founder & CPO, <a target="_blank" href="https://beyondcivic.com">Beyond Civic</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <div class="test-numbers">6</div>
+                                <div class="quote-section">
+                                    <img src="images/quote.png" alt="">
+                                    <p>"ODPS provides a solid foundation for building robust and efficient generative AI workflows and pipelines"</p>
+                                </div>
+                                <div class="author-section">
+                                    <div class="bro"></div>
+                                    <img src="images/testmonail-5.png" alt="">
+                                    <p><strong>Elias Helou</strong><br>
+                                    Founder, <a target="_blank" href="https://vesoai.com/">VesoAI</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="custom-nav">
+                        <button class="prev"><img src="images/arrow-left.png" alt="Previous"></button>
+                        <button class="next"><img src="images/arrow-right.png" alt="Next"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        let carousel;
+        
+        function updateViewportInfo() {
+            document.getElementById('viewport-size').textContent = 
+                `${window.innerWidth}×${window.innerHeight}`;
+        }
+        
+        function updateItemCounter() {
+            const activeItems = document.querySelectorAll('.owl-item.active');
+            document.getElementById('visible-count').textContent = activeItems.length;
+            
+            // Log visible item numbers
+            const visibleNumbers = Array.from(activeItems).map(item => {
+                const numberEl = item.querySelector('.test-numbers');
+                return numberEl ? numberEl.textContent : '?';
+            });
+            console.log('Visible items:', visibleNumbers.join(', '));
+        }
+        
+        function goToPrev() {
+            if (carousel) {
+                carousel.trigger('prev.owl.carousel');
+            }
+        }
+        
+        function goToNext() {
+            if (carousel) {
+                carousel.trigger('next.owl.carousel');
+            }
+        }
+        
+        function pauseCarousel() {
+            if (carousel) {
+                carousel.trigger('stop.owl.autoplay');
+                console.log('Carousel paused');
+            }
+        }
+        
+        function playCarousel() {
+            if (carousel) {
+                carousel.trigger('play.owl.autoplay', [4000]);
+                console.log('Carousel resumed');
+            }
+        }
+        
+        function resetCarousel() {
+            if (carousel) {
+                carousel.trigger('to.owl.carousel', 0);
+                console.log('Carousel reset to first item');
+            }
+        }
+        
+        $(document).ready(function() {
+            updateViewportInfo();
+            
+            // Wait for main.js to initialize carousel
+            setTimeout(function() {
+                carousel = $('.owl-carousel');
+                
+                // Add event listeners for carousel events
+                carousel.on('changed.owl.carousel', function(event) {
+                    setTimeout(updateItemCounter, 100);
+                });
+                
+                carousel.on('initialized.owl.carousel', function(event) {
+                    console.log('Carousel initialized with', event.item.count, 'items');
+                    updateItemCounter();
+                });
+                
+                // Update counter initially
+                updateItemCounter();
+                
+                // Log configuration
+                if (carousel.data('owl.carousel')) {
+                    const settings = carousel.data('owl.carousel').settings;
+                    console.log('Carousel settings:', {
+                        items: settings.items,
+                        responsive: settings.responsive,
+                        loop: settings.loop,
+                        autoplay: settings.autoplay
+                    });
+                }
+            }, 1500);
+            
+            // Update viewport info on resize
+            $(window).on('resize', function() {
+                updateViewportInfo();
+                setTimeout(updateItemCounter, 300);
+            });
+        });
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    goToPrev();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    goToNext();
+                    break;
+                case ' ':
+                    e.preventDefault();
+                    const isPlaying = carousel && carousel.data('owl.carousel').settings.autoplay;
+                    if (isPlaying) {
+                        pauseCarousel();
+                    } else {
+                        playCarousel();
+                    }
+                    break;
+                case 'r':
+                case 'R':
+                    if (e.ctrlKey) {
+                        e.preventDefault();
+                        resetCarousel();
+                    }
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
