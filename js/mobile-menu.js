@@ -14,11 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.className = 'mobile-menu-overlay';
     body.appendChild(overlay);
     
-    // Create close button
-    const closeButton = document.createElement('button');
-    closeButton.className = 'mobile-menu-close';
-    closeButton.innerHTML = '<i class="fas fa-times"></i>';
-    navbarCollapse.appendChild(closeButton);
+    // Remove the separate close button - we'll use the toggle button itself
     
     // Toggle menu function
     function toggleMenu() {
@@ -37,6 +33,12 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.classList.add('show');
         navbarToggler.setAttribute('aria-expanded', 'true');
         body.classList.add('menu-open');
+        
+        // Change hamburger icon to close icon
+        const togglerIcon = navbarToggler.querySelector('.navbar-toggler-icon i');
+        if (togglerIcon) {
+            togglerIcon.className = 'fas fa-times';
+        }
     }
     
     // Close menu function
@@ -45,6 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
         overlay.classList.remove('show');
         navbarToggler.setAttribute('aria-expanded', 'false');
         body.classList.remove('menu-open');
+        
+        // Change close icon back to hamburger icon
+        const togglerIcon = navbarToggler.querySelector('.navbar-toggler-icon i');
+        if (togglerIcon) {
+            togglerIcon.className = 'fas fa-bars';
+        }
     }
     
     // Event listeners
@@ -53,10 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleMenu();
     });
     
-    closeButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        closeMenu();
-    });
+    // Close button event listener removed - using toggle button instead
     
     overlay.addEventListener('click', function() {
         closeMenu();
