@@ -1,8 +1,15 @@
 // Mobile Menu Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const navbarToggler = document.querySelector('.navbar-toggler');
-    const navbarCollapse = document.querySelector('.navbar-collapse');
-    const body = document.body;
+    // Wait a bit to ensure all elements are loaded
+    setTimeout(function() {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const body = document.body;
+        
+        if (!navbarToggler || !navbarCollapse) {
+            console.log('Mobile menu elements not found');
+            return;
+        }
     
     // Create overlay element
     const overlay = document.createElement('div');
@@ -74,8 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle window resize
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 991) {
+        if (window.innerWidth > 992) {
             closeMenu();
         }
     });
+    }, 100); // End setTimeout
 }); 

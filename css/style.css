@@ -115,6 +115,42 @@ p {
   color: #fff;
 }
 
+/* Ensure navbar toggler is visible on mobile */
+@media (max-width: 992px) {
+  .navbar-toggler {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10001 !important;
+  }
+  
+  .navbar-nav {
+    display: none;
+  }
+  
+  .navbar-collapse:not(.show) .navbar-nav {
+    display: none;
+  }
+  
+  /* Override Bootstrap's navbar-expand-lg behavior */
+  .navbar-expand-lg .navbar-toggler {
+    display: block !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 4px !important;
+    padding: 8px 12px !important;
+  }
+  
+  .navbar-expand-lg .navbar-collapse {
+    display: none !important;
+  }
+  
+  .navbar-expand-lg .navbar-collapse.show {
+    display: block !important;
+  }
+}
+
 .hero-content {
   padding: 100px 0 100px;
   text-align: center;
@@ -1579,9 +1615,16 @@ html, body {
 }
 
 /* Logo Responsive */
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .navbar-brand img {
     width: 150px;
+  }
+  
+  /* Ensure burger menu is visible */
+  .navbar-toggler {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 
@@ -1598,7 +1641,7 @@ html, body {
 }
 
 /* Right Sliding Mobile Menu */
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .navbar-collapse {
     position: fixed;
     top: 0;
@@ -1687,6 +1730,7 @@ html, body {
     background: transparent;
     position: relative;
     z-index: 10000;
+    display: block !important;
   }
   
   .navbar-toggler:focus {
@@ -1707,6 +1751,18 @@ html, body {
     font-size: 24px;
     color: #fff;
     transition: all 0.3s ease;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    display: block !important;
+  }
+  
+  /* Ensure burger icon is visible */
+  .navbar-toggler-icon {
+    display: inline-block !important;
+    width: 24px;
+    height: 18px;
+    vertical-align: middle;
+    background: none !important;
+    border: none !important;
   }
   
   /* Hamburger to X animation */
@@ -1779,6 +1835,15 @@ html, body {
   .mobile-menu-close {
     top: 15px;
     right: 15px;
+    font-size: 20px;
+  }
+  
+  .navbar-toggler {
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  .navbar-toggler-icon i {
     font-size: 20px;
   }
 }
