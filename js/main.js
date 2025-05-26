@@ -1,35 +1,56 @@
 $(document).ready(function () {
-  $('.owl-carousel').owlCarousel({
-    items: 3,
-    loop: true,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    nav: false,
-    margin: 30,
-    responsive: {
-      0: {
-        items: 1
-      },
-      480: {
-        items: 2
-      },
-      768: {
-        items: 1
-      },
-      992: {
-        items: 3
-      }
+  // Add small delay to ensure all elements are properly loaded
+  setTimeout(function() {
+    // Check if owl carousel exists
+    if ($('.owl-carousel').length > 0) {
+      console.log('Initializing testimonials carousel...');
+      
+      $('.owl-carousel').owlCarousel({
+        items: 3,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        nav: false,
+        dots: false,
+        margin: 30,
+        stagePadding: 0,
+        smartSpeed: 800,
+        responsive: {
+          0: {
+            items: 1,
+            margin: 20
+          },
+          768: {
+            items: 2,
+            margin: 25
+          },
+          992: {
+            items: 3,
+            margin: 30
+          }
+        }
+      });
+
+      console.log('Carousel initialized successfully');
+      
+      // Custom navigation handlers
+      $('.custom-nav .prev').click(function (e) {
+        e.preventDefault();
+        console.log('Previous button clicked');
+        $('.owl-carousel').trigger('prev.owl.carousel');
+      });
+
+      $('.custom-nav .next').click(function (e) {
+        e.preventDefault();
+        console.log('Next button clicked');
+        $('.owl-carousel').trigger('next.owl.carousel');
+      });
+      
+    } else {
+      console.error('Owl carousel element not found');
     }
-  });
-
-  $('.custom-nav .prev').click(function () {
-    $('.owl-carousel').trigger('prev.owl.carousel');
-  });
-
-  $('.custom-nav .next').click(function () {
-    $('.owl-carousel').trigger('next.owl.carousel');
-  });
+  }, 100);
 
   // Animation
   new WOW().init();

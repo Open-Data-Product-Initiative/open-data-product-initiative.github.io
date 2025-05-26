@@ -322,10 +322,18 @@ p {
 .testmonail-box {
   text-align: center;
   width: 100%;
-  height: 500px;
+  min-height: 500px;
+  height: auto;
   background: #fff;
   padding: 30px;
   box-shadow: 0px 4px 20px rgb(0 0 0 / 15%);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.testmonail-box:hover {
+  box-shadow: 0px 8px 30px rgb(0 0 0 / 20%);
+  transform: translateY(-5px);
 }
 
 .testmonail-box img {
@@ -350,21 +358,135 @@ p {
   margin-bottom: 20px;
 }
 
+.testmonail-slider {
+  position: relative;
+  margin-bottom: 60px;
+}
+
 .custom-nav {
   position: absolute;
-  bottom: 20px;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
 }
 
 .custom-nav button {
   border: none;
   margin: 0 10px;
   background-color: transparent;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  background-color: rgba(95, 28, 135, 0.1);
+}
+
+.custom-nav button:hover {
+  background-color: rgba(95, 28, 135, 0.2);
+  transform: scale(1.1);
 }
 
 .custom-nav button:focus {
   outline: none;
+}
+
+.custom-nav button img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.custom-nav button:hover img {
+  opacity: 1;
+}
+
+.owl-carousel .owl-item {
+  display: flex;
+  align-items: stretch;
+}
+
+.owl-carousel .owl-item .iteam {
+  width: 100%;
+  display: flex;
+}
+
+.owl-carousel .owl-item .testmonail-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Fallback styles when carousel is not initialized */
+.owl-carousel:not(.owl-loaded) .iteam {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.owl-carousel:not(.owl-loaded) {
+  display: block;
+}
+
+/* Ensure carousel items are properly displayed */
+.owl-carousel .owl-stage-outer {
+  overflow: hidden;
+}
+
+.owl-carousel .owl-stage {
+  display: flex;
+  align-items: stretch;
+}
+
+.owl-carousel .owl-item {
+  backface-visibility: hidden;
+}
+
+/* Fix for carousel transitions */
+.owl-carousel .owl-item.active {
+  opacity: 1;
+}
+
+.owl-carousel .owl-item:not(.active) {
+  opacity: 0.7;
+}
+
+/* Mobile responsive styles for testimonials */
+@media (max-width: 767px) {
+  .testmonail-box {
+    min-height: 400px;
+    padding: 20px;
+  }
+  
+  .custom-nav {
+    bottom: -40px;
+  }
+  
+  .custom-nav button {
+    margin: 0 8px;
+    padding: 8px;
+  }
+  
+  .custom-nav button img {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .testmonail-slider {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testmonail-box {
+    min-height: 350px;
+    padding: 15px;
+  }
+  
+  .testmonail-box p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
 }
 
 .cta {

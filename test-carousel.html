@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Carousel Test</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 50px 0;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .debug-info {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .debug-info h4 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>Testimonials Carousel Test</h1>
+            <p>This page tests the testimonials carousel functionality</p>
+        </div>
+        
+        <div class="debug-info">
+            <h4>Debug Information</h4>
+            <div id="debug-output">
+                <span class="status" id="jquery-status">jQuery: Loading...</span>
+                <span class="status" id="owl-status">Owl Carousel: Loading...</span>
+                <span class="status" id="init-status">Initialization: Pending...</span>
+            </div>
+        </div>
+        
+        <section id="testmonail" class="section-padding">
+            <div class="container">
+                <div class="title-right">
+                    <h2>Testimonials</h2>
+                    <p>Test carousel with 6 testimonials</p>
+                </div>
+
+                <div class="testmonail-slider">
+                    <div class="owl-carousel">
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <img src="images/quote.png" alt="">
+                                <p>"We at BASF built our group-wide Data Product concept largely on ODPS and extended it to our specific needs. Reasons to choose ODPS were its maturity especially in complex non-technical aspects."</p>
+                                <div class="bro"></div>
+                                <img src="images/testmonail-0.png" alt="">
+                                <p><strong>Manfred Sorg</strong><br>
+                                Group Data Office, <a target="_blank" href="https://www.basf.com/global/en/who-we-are/digitalization">BASF</a></p>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <img src="images/quote.png" alt="">
+                                <p>"Infrastructure, security, persistency, services and processes all have their 'as-code' open standards within the Ferris platform. Now this stack is complete in adding ODPS as a unified standard for regionally distributed data owners."</p>
+                                <div class="bro"></div>
+                                <img src="images/testmonail-1.png" alt="">
+                                <p><strong>Thomas Debus</strong><br>
+                                Founder & CTO, <a target="_blank" href="https://ferris.ai">Ferris AI</a></p>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <img src="images/quote.png" alt="">
+                                <p>"ODPS fosters collaboration. With standardized data descriptions, we can easily integrate with data marketplaces, reaching a wider audience and accelerating innovation"</p>
+                                <div class="bro"></div>
+                                <img src="images/testmonail-2.png" alt="">
+                                <p><strong>Rajanikanth Thouta</strong><br>
+                                Executive Director, <a target="_blank" href="https://www.ispatialtec.com/">iSpatial Techno Solutions</a></p>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <img src="images/quote.png" alt="">
+                                <p>"Extending X-Road OAS service descriptions with ODPS makes data product-related metadata available in the service catalogue more unified, improves its quality, and enables more automation in the maintenance process."</p>
+                                <div class="bro"></div>
+                                <img src="images/testmonail-3.png" alt="">
+                                <p><strong>Petteri Kivimäki</strong><br>
+                                CTO, <a target="_blank" href="https://www.niis.org/">Nordic Institute for Interoperability Solutions</a></p>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <img src="images/quote.png" alt="">
+                                <p>"ODPS helps our platform to bridge the gap of discoverability and use of data products in the context of data spaces."</p>
+                                <div class="bro"></div>
+                                <img src="images/testmonail-4.png" alt="">
+                                <p><strong>Lukas Hohl</strong><br>
+                                Co-Founder & CPO, <a target="_blank" href="https://beyondcivic.com">Beyond Civic</a></p>
+                            </div>
+                        </div>
+                        <div class="iteam">
+                            <div class="testmonail-box">
+                                <img src="images/quote.png" alt="">
+                                <p>"ODPS provides a solid foundation for building robust and efficient generative AI workflows and pipelines"</p>
+                                <div class="bro"></div>
+                                <img src="images/testmonail-5.png" alt="">
+                                <p><strong>Elias Helou</strong><br>
+                                Founder, <a target="_blank" href="https://vesoai.com/">VesoAI</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="custom-nav">
+                        <button class="prev"><img src="images/arrow-left.png" alt="Previous"></button>
+                        <button class="next"><img src="images/arrow-right.png" alt="Next"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Update status indicators
+            function updateStatus(element, status, text) {
+                const $el = $(element);
+                $el.removeClass('success error');
+                $el.addClass(status);
+                $el.text(text);
+            }
+            
+            // Check jQuery
+            if (typeof jQuery !== 'undefined') {
+                updateStatus('#jquery-status', 'success', 'jQuery: ✓ Loaded');
+                console.log('jQuery version:', jQuery.fn.jquery);
+            } else {
+                updateStatus('#jquery-status', 'error', 'jQuery: ✗ Failed');
+            }
+            
+            // Check Owl Carousel
+            if (typeof $.fn.owlCarousel !== 'undefined') {
+                updateStatus('#owl-status', 'success', 'Owl Carousel: ✓ Loaded');
+                console.log('Owl Carousel plugin available');
+            } else {
+                updateStatus('#owl-status', 'error', 'Owl Carousel: ✗ Failed');
+            }
+            
+            // Initialize carousel
+            try {
+                if ($('.owl-carousel').length > 0) {
+                    console.log('Initializing testimonials carousel...');
+                    
+                    $('.owl-carousel').owlCarousel({
+                        items: 3,
+                        loop: true,
+                        autoplay: true,
+                        autoplayTimeout: 5000,
+                        autoplayHoverPause: true,
+                        nav: false,
+                        dots: false,
+                        margin: 30,
+                        stagePadding: 0,
+                        smartSpeed: 800,
+                        responsive: {
+                            0: {
+                                items: 1,
+                                margin: 20
+                            },
+                            768: {
+                                items: 2,
+                                margin: 25
+                            },
+                            992: {
+                                items: 3,
+                                margin: 30
+                            }
+                        }
+                    });
+                    
+                    updateStatus('#init-status', 'success', 'Initialization: ✓ Success');
+                    console.log('Carousel initialized successfully');
+                    
+                    // Custom navigation handlers
+                    $('.custom-nav .prev').click(function(e) {
+                        e.preventDefault();
+                        console.log('Previous button clicked');
+                        $('.owl-carousel').trigger('prev.owl.carousel');
+                    });
+
+                    $('.custom-nav .next').click(function(e) {
+                        e.preventDefault();
+                        console.log('Next button clicked');
+                        $('.owl-carousel').trigger('next.owl.carousel');
+                    });
+                    
+                } else {
+                    updateStatus('#init-status', 'error', 'Initialization: ✗ No carousel element found');
+                    console.error('Owl carousel element not found');
+                }
+            } catch (error) {
+                updateStatus('#init-status', 'error', 'Initialization: ✗ Error - ' + error.message);
+                console.error('Carousel initialization error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
