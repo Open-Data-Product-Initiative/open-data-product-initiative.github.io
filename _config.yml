@@ -1,0 +1,66 @@
+# Site settings
+title: Open Data Product Specification
+description: "The Open Data Product Specification (ODPS) is a vendor-neutral, open-source machine-readable data product metadata document."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://open-data-product-initiative.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - .DS_Store
+
+# Include files that start with underscore
+include:
+  - _pages
+
+# Plugin settings
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Default settings
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# GitHub Pages specific settings
+github:
+  repository_url: "https://github.com/open-data-product-initiative/open-data-product-initiative.github.io"
+
+# SEO settings
+author: "Open Data Product Initiative"
+twitter:
+  username: odps_initiative
+  card: summary_large_image
+
+# Social links
+social:
+  name: Open Data Product Initiative
+  links:
+    - https://github.com/open-data-product-initiative
+
+# Sass settings
+sass:
+  sass_dir: css
+  style: compressed 
