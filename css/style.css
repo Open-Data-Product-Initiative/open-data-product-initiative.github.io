@@ -145,7 +145,15 @@ p {
   bottom: 0;
   position:absolute; 
   width: 100%;
-  /* To ensure no gap with wave image above */
+}
+
+.state-section {
+  background-color: #000;
+  padding: 30px 0;
+  margin-top: -1px;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
 
 .partner-section h2 {
@@ -1056,5 +1064,485 @@ footer .col-md-4 {
     padding: 10px 15px;
     font-size: 14px;
     max-width: 250px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN FOR SMALLER SCREENS
+======================================== */
+
+/* Tablet and Mobile Navigation */
+@media (max-width: 991px) {
+  .navbar-brand img {
+    width: 150px;
+  }
+  
+  .nav-item {
+    padding-left: 15px;
+  }
+  
+  .nav-item a {
+    font-size: 14px;
+  }
+}
+
+/* Mobile First - Large Phones & Small Tablets */
+@media (max-width: 768px) {
+  /* Global Typography */
+  p {
+    font-size: 14px;
+  }
+  
+  /* Navigation */
+  .navbar-brand img {
+    width: 120px;
+  }
+  
+  .nav-item {
+    padding-left: 0;
+    text-align: center;
+    padding: 8px 0;
+  }
+  
+  .nav-item a {
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 70vh;
+    min-height: 500px;
+  }
+  
+  .hero-content {
+    padding: 60px 0 60px;
+  }
+  
+  .hero-content h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+  
+  .hero-content h3 {
+    font-size: 18px;
+    margin: 15px 0;
+  }
+  
+  #hero-lf-logo {
+    margin-top: 40px;
+  }
+  
+  #hero-lf-logo img {
+    max-width: 200px;
+    height: auto;
+  }
+  
+  /* Sections */
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  /* About Content */
+  .about-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  
+  .about-content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .about-content-bottom {
+    width: 95%;
+    padding: 60px 0 0;
+  }
+  
+  .about-content-bottom h5 {
+    font-size: 20px;
+  }
+  
+  .about-content-bottom p {
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  
+  /* Center Title */
+  .center-title {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  
+  .center-title h2 {
+    font-size: 28px;
+  }
+  
+  /* Buttons */
+  .gobal-btn a {
+    padding: 12px 25px;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 280px;
+  }
+  
+  .theme-btn a {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+  
+  /* Version Boxes */
+  .version-box {
+    margin-bottom: 20px;
+  }
+  
+  .version-box p {
+    font-size: 16px;
+    padding: 8px;
+  }
+  
+  /* Testimonial Section */
+  .testmonail-box {
+    height: auto;
+    min-height: 400px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .testmonail-box p {
+    font-size: 14px;
+  }
+  
+  /* Team Section */
+  .team-mate {
+    text-align: center;
+  }
+  
+  .team-iteam {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .team-iteam img {
+    max-width: 150px;
+    height: auto;
+  }
+  
+  .team-iteam p {
+    font-size: 14px;
+  }
+  
+  /* CTA Section */
+  .cta {
+    padding: 40px 0;
+  }
+  
+  .cta h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+  }
+  
+  /* Contact Form */
+  .contact-form {
+    padding: 0 15px;
+  }
+  
+  .contact-form .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+  }
+  
+  /* State Section */
+  .state-section {
+    padding: 20px 0;
+    bottom: 0;
+  }
+  .state-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    padding: 0 15px;
+    text-align: center;
+  }
+  
+  /* Partner Section */
+  .partner-section {
+    padding: 20px 0;
+    position: relative;
+  }
+  
+  .partner-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+  /* Typography */
+  p {
+    font-size: 13px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 60vh;
+    min-height: 450px;
+  }
+  
+  .hero-content {
+    padding: 40px 0 40px;
+  }
+  
+  .hero-content h1 {
+    font-size: 28px;
+    padding: 0 15px;
+  }
+  
+  .hero-content h3 {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+  
+  #hero-lf-logo {
+    margin-top: 30px;
+  }
+  
+  #hero-lf-logo img {
+    max-width: 150px;
+  }
+  
+  /* Sections */
+  .section-padding {
+    padding: 40px 0;
+  }
+  
+  /* About Content */
+  .about-content h2 {
+    font-size: 26px;
+    padding: 0 15px;
+  }
+  
+  .about-content p {
+    padding: 0 15px;
+    font-size: 13px;
+  }
+  
+  .about-content-bottom {
+    width: 100%;
+    padding: 40px 15px 0;
+  }
+  
+  .about-content-bottom h5 {
+    font-size: 18px;
+  }
+  
+  .about-content-bottom p {
+    font-size: 13px;
+  }
+  
+  /* Center Title */
+  .center-title {
+    width: 100%;
+    padding: 0 15px;
+  }
+  
+  .center-title h2 {
+    font-size: 24px;
+  }
+  
+  /* Buttons */
+  .gobal-btn {
+    padding: 0 15px;
+  }
+  
+  .gobal-btn a {
+    padding: 12px 20px;
+    font-size: 14px;
+    width: 100%;
+    max-width: none;
+  }
+  
+  /* Version Boxes */
+  .version-box p {
+    font-size: 14px;
+    padding: 6px;
+  }
+  
+  /* Testimonial */
+  .testmonail-box {
+    padding: 15px;
+    min-height: 350px;
+  }
+  
+  .testmonail-box p {
+    font-size: 13px;
+    margin: 10px 0;
+  }
+  
+  /* Team */
+  .team-iteam img {
+    max-width: 120px;
+  }
+  
+  .team-iteam p {
+    font-size: 13px;
+  }
+  
+  /* CTA */
+  .cta {
+    padding: 30px 0;
+  }
+  
+  .cta h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    padding: 0 20px;
+  }
+  
+  /* State Section */
+  .state-section {
+    padding: 15px 0;
+  }
+  
+  .state-section h2 {
+    font-size: 22px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Lists */
+  .list-about ul li {
+    flex-direction: column;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .list-about ul li img {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+  
+  /* User Content */
+  .user-content h3 {
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .user-content p {
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 30px 0;
+  }
+  
+  footer h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  footer ul li {
+    margin-bottom: 8px;
+  }
+  
+  footer ul li a {
+    font-size: 13px;
+  }
+}
+
+/* Extra Small Mobile Phones */
+@media (max-width: 360px) {
+  /* Hero Section */
+  .hero-content h1 {
+    font-size: 24px;
+  }
+  
+  .hero-content h3 {
+    font-size: 14px;
+  }
+  
+  #hero-lf-logo img {
+    max-width: 120px;
+  }
+  
+  /* Typography */
+  .about-content h2 {
+    font-size: 22px;
+  }
+  
+  .center-title h2 {
+    font-size: 20px;
+  }
+  
+  .cta h2 {
+    font-size: 20px;
+  }
+  
+  /* Buttons */
+  .gobal-btn a {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  
+  /* Version Boxes */
+  .version-box p {
+    font-size: 13px;
+  }
+  
+  /* Testimonial */
+  .testmonail-box {
+    padding: 12px;
+    min-height: 300px;
+  }
+  
+  /* Team */
+  .team-iteam img {
+    max-width: 100px;
+  }
+  
+  /* Contact Form */
+  .contact-form .btn-primary {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  /* State Section */
+  .state-section h2 {
+    font-size: 16px;
+    padding: 0 15px;
+  }
+}
+
+/* Utility Classes for Mobile */
+@media (max-width: 768px) {
+  .for-mobile {
+    display: block !important;
+  }
+  
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .text-center-mobile {
+    text-align: center !important;
+  }
+  
+  .full-width-mobile {
+    width: 100% !important;
+  }
+  
+  .padding-mobile {
+    padding: 0 15px !important;
   }
 }
