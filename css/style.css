@@ -115,7 +115,7 @@ p {
   padding: 100px 0 100px;
   text-align: center;
   color: #fff;
-  z-index: 999;
+  z-index: 998;
   position: relative;
 }
 
@@ -141,7 +141,10 @@ p {
   background-color: #6b2c91;
   padding: 30px 0;
   margin-top: -1px;
-  z-index: 100;
+  z-index: 999;
+  bottom: 0;
+  position:absolute; 
+  width: 100%;
   /* To ensure no gap with wave image above */
 }
 
