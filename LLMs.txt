@@ -1,4 +1,4 @@
-# Open Data Product Specification - Linux Foundation
+# Open Data Product Specification, ODPS - Linux Foundation
 
 Discover how to transform your data strategy with the Open Data Product Specification (ODPS), driving value and innovation in the modern data economy.
 
