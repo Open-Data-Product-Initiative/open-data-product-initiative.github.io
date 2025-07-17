@@ -1546,3 +1546,8 @@ footer .col-md-4 {
     padding: 0 15px !important;
   }
 }
+
+footer .container h3 {
+  text-decoration: none;
+  border-bottom: 0;
+}
