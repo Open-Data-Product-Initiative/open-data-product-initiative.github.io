@@ -51,7 +51,7 @@ p {
 .hero {
   width: 100%;
   height: 95vh;
-  background: url(../images/hero.png) center center;
+  background: url(../images/2026bg.png) center center;
   background-size: cover;
   position: relative;
 }
@@ -134,7 +134,7 @@ p {
 }
 
 #hero-lf-logo {
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 .partner-section {
@@ -1553,5 +1553,11 @@ footer .container h3 {
 }
 
 #start-building-CTA {
-  margin-top: 90px;
+  margin-top: 130px;
+}
+
+@media (min-width: 769px) {
+  #hero-lf-logo {
+    margin-top: 280px;
+  }
 }
