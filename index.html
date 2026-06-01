@@ -228,8 +228,9 @@
 		.resource-card,
 		.flow-card {
 			background: #fff;
-			border-radius: 18px;
-			box-shadow: 0 12px 35px rgba(30, 10, 46, 0.08);
+			border: 1px solid rgba(108, 42, 142, .12);
+			border-radius: 22px;
+			box-shadow: 0 22px 55px rgba(30, 10, 46, .09);
 			height: 100%;
 			padding: 28px;
 		}
@@ -245,14 +246,18 @@
 			flex: 1;
 		}
 
+		.standards-section {
+			background: linear-gradient(180deg, #fff 0%, #fbf9fd 100%);
+		}
+
 		.family-card a {
 			margin-top: auto;
 		}
 
 		.family-card:hover,
 		.flow-card:hover {
-			box-shadow: 0 22px 50px rgba(30, 10, 46, 0.18);
-			transform: translateY(-6px) scale(1.02);
+			box-shadow: 0 28px 60px rgba(30, 10, 46, .14);
+			transform: translateY(-4px);
 		}
 
 		.family-card.odpc,
@@ -282,9 +287,12 @@
 			border-radius: 999px;
 			color: #fff;
 			display: inline-block;
-			font-weight: 700;
+			font-size: 13px;
+			font-weight: 800;
+			letter-spacing: .08em;
 			margin-bottom: 14px;
 			padding: 7px 14px;
+			text-transform: uppercase;
 		}
 
 		.badge-odps {
@@ -316,20 +324,43 @@
 		}
 
 		.flow-card {
-			border-left: 6px solid var(--odps-violet);
+			border-left: 0;
+			position: relative;
 			transition: box-shadow .25s ease, transform .25s ease;
 		}
 
+		.flow-card::before {
+			background: var(--odps-violet);
+			border-radius: 999px;
+			content: "";
+			display: block;
+			height: 6px;
+			margin-bottom: 20px;
+			width: 54px;
+		}
+
 		.flow-card.odpc {
-			border-left-color: var(--odpc-orange);
+			border-left-color: rgba(108, 42, 142, .12);
 		}
 
 		.flow-card.odpg {
-			border-left-color: var(--odpg-green);
+			border-left-color: rgba(108, 42, 142, .12);
 		}
 
 		.flow-card.odpv {
-			border-left-color: var(--odpv-blue);
+			border-left-color: rgba(108, 42, 142, .12);
+		}
+
+		.flow-card.odpc::before {
+			background: var(--odpc-orange);
+		}
+
+		.flow-card.odpg::before {
+			background: var(--odpg-green);
+		}
+
+		.flow-card.odpv::before {
+			background: var(--odpv-blue);
 		}
 
 		.resource-card {
@@ -402,7 +433,7 @@
 		}
 
 		.agent-section {
-			background: var(--odp-ink);
+			background: linear-gradient(135deg, var(--odp-ink), #321449 60%, var(--odp-ink));
 			color: #fff;
 			padding: 70px 0;
 		}
@@ -415,9 +446,201 @@
 		.agent-panel {
 			background: rgba(255, 255, 255, .08);
 			border: 1px solid rgba(255, 255, 255, .16);
-			border-radius: 20px;
+			border-radius: 28px;
+			box-shadow: 0 22px 55px rgba(0, 0, 0, .18);
 			height: 100%;
 			padding: 28px;
+		}
+
+		.agent-kicker {
+			color: #e9d7f2;
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 800;
+			letter-spacing: .08em;
+			margin-bottom: 14px;
+			text-transform: uppercase;
+		}
+
+		.agent-section p {
+			color: rgba(255, 255, 255, .82);
+			font-size: 18px;
+			line-height: 1.65;
+		}
+
+		.agent-context-grid {
+			display: grid;
+			gap: 12px;
+			grid-template-columns: 1fr;
+		}
+
+		.agent-context-item {
+			align-items: flex-start;
+			background: rgba(255, 255, 255, .1);
+			border: 1px solid rgba(255, 255, 255, .18);
+			border-radius: 16px;
+			color: rgba(255, 255, 255, .9);
+			display: flex;
+			font-size: 16px;
+			font-weight: 600;
+			gap: 12px;
+			line-height: 1.45;
+			padding: 14px 16px;
+		}
+
+		.agent-context-item i {
+			color: #f6d365;
+			margin-top: 4px;
+		}
+
+		.sdk-section {
+			background: linear-gradient(180deg, #fff 0%, #f8f4fb 100%);
+		}
+
+		.sdk-showcase {
+			align-items: stretch;
+		}
+
+		.sdk-copy {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			justify-content: center;
+		}
+
+		.sdk-kicker {
+			color: var(--odps-violet);
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 800;
+			letter-spacing: .08em;
+			margin-bottom: 14px;
+			text-transform: uppercase;
+		}
+
+		.sdk-copy h2 {
+			color: var(--odp-ink);
+			font-size: clamp(34px, 4vw, 54px);
+			font-weight: 800;
+			line-height: 1.05;
+			margin-bottom: 20px;
+		}
+
+		.sdk-copy p {
+			color: #3c3046;
+			font-size: 19px;
+			line-height: 1.65;
+			margin-bottom: 24px;
+		}
+
+		.sdk-actions {
+			margin-top: 6px;
+		}
+
+		.sdk-flow-board {
+			background: #fff;
+			border: 1px solid rgba(108, 42, 142, .12);
+			border-radius: 28px;
+			box-shadow: 0 22px 55px rgba(30, 10, 46, .12);
+			display: grid;
+			gap: 18px;
+			grid-template-columns: 1fr;
+			height: 100%;
+			padding: 26px;
+		}
+
+		.sdk-flow-row {
+			align-items: center;
+			display: grid;
+			gap: 16px;
+			grid-template-columns: 1fr auto 1fr;
+		}
+
+		.sdk-node {
+			background: #fbf9fd;
+			border: 1px solid rgba(108, 42, 142, .14);
+			border-radius: 20px;
+			min-height: 158px;
+			padding: 22px;
+		}
+
+		.sdk-node.sdk-bridge {
+			background: linear-gradient(135deg, var(--odp-ink), var(--odps-violet));
+			color: #fff;
+			grid-column: 1 / -1;
+			min-height: auto;
+		}
+
+		.sdk-node small {
+			color: var(--odps-violet);
+			display: block;
+			font-weight: 800;
+			letter-spacing: .08em;
+			margin-bottom: 9px;
+			text-transform: uppercase;
+		}
+
+		.sdk-node.sdk-bridge small {
+			color: #e9d7f2;
+		}
+
+		.sdk-node h3 {
+			color: var(--odp-ink);
+			font-size: 23px;
+			font-weight: 800;
+			line-height: 1.2;
+			margin-bottom: 10px;
+		}
+
+		.sdk-node.sdk-bridge h3 {
+			color: #fff;
+		}
+
+		.sdk-node p {
+			color: #55475f;
+			font-size: 16px;
+			line-height: 1.55;
+			margin: 0;
+		}
+
+		.sdk-node.sdk-bridge p {
+			color: rgba(255, 255, 255, .86);
+		}
+
+		.sdk-arrow {
+			align-items: center;
+			background: var(--odps-violet);
+			border-radius: 999px;
+			color: #fff;
+			display: flex;
+			font-size: 17px;
+			height: 42px;
+			justify-content: center;
+			width: 42px;
+		}
+
+		.sdk-tool-grid {
+			display: grid;
+			gap: 10px;
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.sdk-tool {
+			align-items: center;
+			background: rgba(255, 255, 255, .1);
+			border: 1px solid rgba(255, 255, 255, .18);
+			border-radius: 14px;
+			color: #fff;
+			display: flex;
+			font-size: 15px;
+			font-weight: 700;
+			gap: 10px;
+			padding: 12px 14px;
+		}
+
+		.sdk-tool i {
+			color: #f6d365;
+			font-size: 15px;
 		}
 
 		.gobal-btn {
@@ -511,6 +734,15 @@
 			.family-flow {
 				grid-template-columns: repeat(2, 1fr);
 			}
+
+			.sdk-flow-row {
+				grid-template-columns: 1fr;
+			}
+
+			.sdk-arrow {
+				justify-self: center;
+				transform: rotate(90deg);
+			}
 		}
 
 		@media (min-width: 768px) and (max-width: 1199px) {
@@ -542,6 +774,22 @@
 			}
 
 			.family-flow {
+				grid-template-columns: 1fr;
+			}
+
+			.sdk-copy {
+				margin-bottom: 26px;
+			}
+
+			.sdk-copy p {
+				font-size: 17px;
+			}
+
+			.sdk-flow-board {
+				padding: 18px;
+			}
+
+			.sdk-tool-grid {
 				grid-template-columns: 1fr;
 			}
 
@@ -690,7 +938,7 @@
 		</div>
 	</section>
 
-	<section class="section-padding" id="standards">
+	<section class="section-padding standards-section" id="standards">
 		<div class="container">
 			<div class="center-title wow fadeInUp" data-wow-delay=".3s">
 				<h2>The Standards Family</h2>
@@ -771,6 +1019,7 @@
 		<div class="container">
 			<div class="row dis-flex">
 				<div class="col-lg-6 wow fadeInLeft" data-wow-delay=".3s">
+					<span class="agent-kicker">Context for automation</span>
 					<h2>Built for AI Agents and Context Engineering</h2>
 					<p>AI agents need more than access to data. They need structured context that explains what a data product is, where it belongs, how it connects to business value, and which terms mean what.</p>
 					<p>The Open Data Products family supports this through machine-readable YAML and JSON, reusable schemas, shared vocabulary, graph relationships, examples, and tooling.</p>
@@ -778,35 +1027,59 @@
 				<div class="col-lg-6 wow fadeInRight" data-wow-delay=".5s">
 					<div class="agent-panel">
 						<h3>Agent-Ready Context</h3>
-						<ul>
-							<li>Machine-readable YAML and JSON for automation.</li>
-							<li>Shared vocabulary for consistent interpretation.</li>
-							<li>Graph model for relationships and value mapping.</li>
-							<li>Schemas for validation and safer workflows.</li>
-							<li>Python SDK and MCP support for AI agent workflows.</li>
-						</ul>
+						<div class="agent-context-grid">
+							<div class="agent-context-item"><i class="fas fa-file-code"></i>Machine-readable YAML and JSON for automation.</div>
+							<div class="agent-context-item"><i class="fas fa-book"></i>Shared vocabulary for consistent interpretation.</div>
+							<div class="agent-context-item"><i class="fas fa-project-diagram"></i>Graph model for relationships and value mapping.</div>
+							<div class="agent-context-item"><i class="fas fa-shield-alt"></i>Schemas for validation and safer workflows.</div>
+							<div class="agent-context-item"><i class="fas fa-robot"></i>Python SDK and MCP support for AI agent workflows.</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="section-padding" id="sdk">
+	<section class="section-padding sdk-section" id="sdk">
 		<div class="container">
-			<div class="row dis-flex">
+			<div class="row dis-flex sdk-showcase">
 				<div class="col-lg-6 wow fadeInLeft" data-wow-delay=".3s">
-					<div class="family-visual">
-						<h2>Open Data Products Python SDK with MCP</h2>
-						<p>The Python SDK makes the standards family operational for developers, platforms, automation workflows, and AI agents.</p>
+					<div class="sdk-copy">
+						<span class="sdk-kicker">Python SDK + MCP server</span>
+						<h2>Turn standards files into agent workflows</h2>
+						<p>The Open Data Products Python SDK makes ODPS, ODPC, ODPG, and ODPV operational. Validate source files, detect document types, explain structures, search artifacts, traverse relationships, and expose the same standards-aware actions to AI agents through MCP.</p>
+						<div class="gobal-btn theme-btn sdk-actions">
+							<a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk" target="_blank" rel="noopener">View SDK on GitHub</a>
+							<a href="https://opendataproducts.org/sdk/" target="_blank" rel="noopener">Read SDK Docs</a>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-6 wow fadeInRight" data-wow-delay=".5s">
-					<div class="about-content">
-						<h2>From Files to Agent Workflows</h2>
-						<p>Use the SDK to validate files, detect document types, explain structures, search artifacts, traverse relationships, summarize content, and work with ODPS, ODPC, ODPG, and ODPV through CLI and MCP interfaces.</p>
-						<div class="gobal-btn theme-btn">
-							<a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk" target="_blank" rel="noopener">View SDK on GitHub</a>
-							<a href="https://opendataproducts.org/sdk/" target="_blank" rel="noopener" style="margin-left: 12px;">Read SDK Docs</a>
+					<div class="sdk-flow-board" aria-label="SDK workflow from standards files to AI agent actions">
+						<div class="sdk-flow-row">
+							<div class="sdk-node">
+								<small>Input</small>
+								<h3>Standards files</h3>
+								<p>ODPS product specs, ODPC catalogs, ODPG graphs, ODPV vocabulary, schemas, examples, and data contract artifacts.</p>
+							</div>
+							<div class="sdk-arrow" aria-hidden="true">
+								<i class="fas fa-arrow-right"></i>
+							</div>
+							<div class="sdk-node">
+								<small>Output</small>
+								<h3>Agent-ready context</h3>
+								<p>Validated metadata, readable explanations, searchable structures, relationship paths, and summarized product context.</p>
+							</div>
+						</div>
+						<div class="sdk-node sdk-bridge">
+							<small>Execution layer</small>
+							<h3>One toolkit across CLI, Python, and MCP</h3>
+							<div class="sdk-tool-grid">
+								<div class="sdk-tool"><i class="fas fa-check-circle"></i>Validate</div>
+								<div class="sdk-tool"><i class="fas fa-search"></i>Search</div>
+								<div class="sdk-tool"><i class="fas fa-project-diagram"></i>Traverse</div>
+								<div class="sdk-tool"><i class="fas fa-robot"></i>Expose MCP tools</div>
+							</div>
 						</div>
 					</div>
 				</div>
