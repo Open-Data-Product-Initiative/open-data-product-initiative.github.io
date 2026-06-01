@@ -437,6 +437,19 @@
 			white-space: normal;
 		}
 
+		#start-building-CTA {
+			justify-content: center;
+		}
+
+		#hero-lf-logo {
+			margin: 34px 0 0;
+		}
+
+		#hero-lf-logo img {
+			display: inline-block;
+			max-width: min(260px, 80vw);
+		}
+
 		#start-building-CTA a,
 		#sdk .gobal-btn a,
 		#development .gobal-btn a {
@@ -474,6 +487,19 @@
 		.owl-stage-outer {
 			max-width: 100%;
 			overflow: hidden;
+		}
+
+		.testmonail-box {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.testmonail-box > p:last-child {
+			margin-bottom: 0;
+		}
+
+		.testmonail-box > img:nth-of-type(2) {
+			margin-top: auto;
 		}
 
 		@media (max-width: 1199px) {
@@ -522,7 +548,8 @@
 			}
 
 			#start-building-CTA {
-				padding-right: 58px;
+				align-items: center;
+				padding-right: 0;
 			}
 
 			.hero-content {
@@ -553,6 +580,14 @@
 			#sdk .gobal-btn a,
 			#development .gobal-btn a {
 				width: 100%;
+			}
+
+			#start-building-CTA a {
+				width: min(100%, 320px);
+			}
+
+			#hero-lf-logo {
+				margin-top: 24px;
 			}
 
 			#partnership .custom-tabs {
