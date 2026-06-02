@@ -537,6 +537,32 @@
 			margin-top: 6px;
 		}
 
+		.sdk-quickstart {
+			align-items: center;
+			background: #1e0a2e;
+			border-radius: 10px;
+			color: #fff;
+			display: inline-flex;
+			flex-wrap: wrap;
+			font-size: 15px;
+			font-weight: 700;
+			gap: 10px;
+			margin-top: 18px;
+			padding: 12px 14px;
+			width: fit-content;
+		}
+
+		.sdk-quickstart span {
+			color: #f6d365;
+			text-transform: uppercase;
+		}
+
+		.sdk-quickstart code {
+			color: #fff;
+			font-family: Consolas, Monaco, "Courier New", monospace;
+			font-size: 15px;
+		}
+
 		.sdk-flow-board {
 			background: #fff;
 			border: 1px solid rgba(108, 42, 142, .12);
@@ -1576,6 +1602,10 @@
 						<div class="gobal-btn theme-btn sdk-actions">
 							<a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk" target="_blank" rel="noopener">View SDK on GitHub</a>
 							<a href="https://opendataproducts.org/sdk/" target="_blank" rel="noopener">Read SDK Docs</a>
+						</div>
+						<div class="sdk-quickstart" aria-label="Quickstart install command">
+							<span>Quickstart</span>
+							<code>$ pip install open-data-products</code>
 						</div>
 					</div>
 				</div>
