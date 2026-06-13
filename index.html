@@ -8,7 +8,7 @@
 	<meta name="description"
 		content="Open standards for describing, cataloging, connecting, and interpreting data products across platforms, portfolios, and AI agent workflows.">
 	<meta name="keywords"
-		content="Open Data Products, ODPS, ODPC, ODPG, ODPV, Data Product Standards, AI Agents, MCP, Data Product Catalogs, Data Product Graphs">
+		content="Open Data Products, ODPS, ODPC, ODPG, ODPV, ODPR, Data Product Standards, AI Agents, MCP, Data Product Catalogs, Data Product Graphs, Data Product Recipes">
 	<meta name="author" content="Dr. Jarkko Moilanen">
 	<link rel="canonical" href="https://opendataproducts.org/">
 	<meta property="og:title" content="Open Data Products Standards Family | Linux Foundation">
@@ -209,6 +209,7 @@
 			--odpc-orange: #f28c28;
 			--odpg-green: #2f9b58;
 			--odpv-blue: #1f78d1;
+			--odpr-rose: #d9467a;
 			--odp-ink: #1e0a2e;
 			--odp-soft: #f7f3fa;
 		}
@@ -225,8 +226,7 @@
 		}
 
 		.family-card,
-		.resource-card,
-		.flow-card {
+		.resource-card {
 			background: #fff;
 			border: 1px solid rgba(108, 42, 142, .12);
 			border-radius: 22px;
@@ -254,8 +254,7 @@
 			margin-top: auto;
 		}
 
-		.family-card:hover,
-		.flow-card:hover {
+		.family-card:hover {
 			box-shadow: 0 28px 60px rgba(30, 10, 46, .14);
 			transform: translateY(-4px);
 		}
@@ -275,9 +274,13 @@
 			border-top-color: var(--odpv-blue);
 		}
 
+		.family-card.odpr,
+		.resource-card.odpr {
+			border-top-color: var(--odpr-rose);
+		}
+
 		.family-card h3,
-		.resource-card h3,
-		.flow-card h3 {
+		.resource-card h3 {
 			color: var(--odp-ink);
 			font-size: 24px;
 			font-weight: 700;
@@ -311,56 +314,44 @@
 			background: var(--odpv-blue);
 		}
 
+		.badge-odpr {
+			background: var(--odpr-rose);
+		}
+
 		.family-visual {
 			background: linear-gradient(135deg, rgba(108, 42, 142, .12), rgba(31, 120, 209, .12));
 			border-radius: 24px;
 			padding: 30px;
 		}
 
-		.family-flow {
+		.standards-card-row {
 			display: grid;
-			gap: 16px;
-			grid-template-columns: repeat(4, 1fr);
+			gap: 30px;
+			grid-template-columns: repeat(6, minmax(0, 1fr));
+			margin-left: 0;
+			margin-right: 0;
 		}
 
-		.flow-card {
-			border-left: 0;
-			position: relative;
-			transition: box-shadow .25s ease, transform .25s ease;
+		.standards-card-row::before,
+		.standards-card-row::after {
+			content: none;
 		}
 
-		.flow-card::before {
-			background: var(--odps-violet);
-			border-radius: 999px;
-			content: "";
-			display: block;
-			height: 6px;
-			margin-bottom: 20px;
-			width: 54px;
+		.standards-card-row>[class*="col-"] {
+			float: none;
+			grid-column: span 2;
+			max-width: none;
+			padding-left: 0;
+			padding-right: 0;
+			width: auto;
 		}
 
-		.flow-card.odpc {
-			border-left-color: rgba(108, 42, 142, .12);
+		.standards-card-row>[class*="col-"]:nth-child(4) {
+			grid-column: 2 / span 2;
 		}
 
-		.flow-card.odpg {
-			border-left-color: rgba(108, 42, 142, .12);
-		}
-
-		.flow-card.odpv {
-			border-left-color: rgba(108, 42, 142, .12);
-		}
-
-		.flow-card.odpc::before {
-			background: var(--odpc-orange);
-		}
-
-		.flow-card.odpg::before {
-			background: var(--odpg-green);
-		}
-
-		.flow-card.odpv::before {
-			background: var(--odpv-blue);
+		.standards-card-row>[class*="col-"]:nth-child(5) {
+			grid-column: 4 / span 2;
 		}
 
 		.resource-card {
@@ -420,6 +411,10 @@
 			background: var(--odpv-blue);
 		}
 
+		.resource-card.odpr h3 {
+			background: var(--odpr-rose);
+		}
+
 		.resource-card.odpc a {
 			color: var(--odpc-orange);
 		}
@@ -430,6 +425,81 @@
 
 		.resource-card.odpv a {
 			color: var(--odpv-blue);
+		}
+
+		.resource-card.odpr a {
+			color: var(--odpr-rose);
+		}
+
+		.standout-section {
+			background: linear-gradient(180deg, #fbf9fd 0%, #fff 100%);
+		}
+
+		.standout-grid {
+			display: grid;
+			gap: 18px;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.standout-item {
+			background: rgba(255, 255, 255, .92);
+			border: 1px solid rgba(108, 42, 142, .13);
+			border-radius: 8px;
+			display: grid;
+			gap: 18px;
+			grid-template-columns: 54px 1fr;
+			padding: 24px;
+		}
+
+		.standout-item:first-child {
+			grid-column: 1 / -1;
+		}
+
+		.standout-number {
+			align-items: center;
+			background: var(--odp-ink);
+			border-radius: 50%;
+			color: #fff;
+			display: inline-flex;
+			font-size: 18px;
+			font-weight: 800;
+			height: 48px;
+			justify-content: center;
+			width: 48px;
+		}
+
+		.standout-item h3 {
+			color: var(--odp-ink);
+			font-size: 23px;
+			font-weight: 800;
+			margin: 0 0 10px;
+		}
+
+		.standout-item p {
+			color: #3c3046;
+			font-size: 17px;
+			line-height: 1.55;
+			margin-bottom: 14px;
+		}
+
+		.standout-tags {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.standout-tags li {
+			background: rgba(108, 42, 142, .08);
+			border: 1px solid rgba(108, 42, 142, .12);
+			border-radius: 999px;
+			color: #3c3046;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 1.2;
+			padding: 8px 11px;
 		}
 
 		.agent-section {
@@ -721,16 +791,13 @@
 		.section-padding,
 		.sdk-section,
 		.standards-section,
+		.standout-section,
 		#versions,
 		#userCase,
 		#development,
 		#CoreTeam,
 		#testmonail {
 			background: linear-gradient(180deg, #fff 0%, #f8f4fb 100%);
-		}
-
-		#family-works {
-			background: linear-gradient(180deg, #f8f4fb 0%, #fff 100%) !important;
 		}
 
 		.center-title,
@@ -783,6 +850,10 @@
 			content: "Specs and schemas";
 		}
 
+		#why-standards .center-title::before {
+			content: "Why it stands out";
+		}
+
 		#userCase .center-title::before {
 			content: "Practical adoption";
 		}
@@ -792,7 +863,6 @@
 		}
 
 		.family-card,
-		.flow-card,
 		.resource-card,
 		.testmonail-box,
 		.dvelopment-img,
@@ -803,8 +873,7 @@
 			box-shadow: 0 22px 55px rgba(30, 10, 46, .12);
 		}
 
-		.family-card,
-		.flow-card {
+		.family-card {
 			border-top: 0;
 		}
 
@@ -1053,46 +1122,88 @@
 			width: 46px;
 		}
 
-		.bor-botom {
-			border-bottom: 0;
-			margin-bottom: 30px;
-			padding: 28px;
+		.case-section {
+			background: linear-gradient(180deg, #fff 0%, #f8f4fb 100%);
 		}
 
-		#userCase .bor-botom {
+		.case-block {
+			margin-top: 38px;
+		}
+
+		.case-block h3 {
+			color: var(--odp-ink);
+			font-size: 28px;
+			font-weight: 800;
+			margin-bottom: 18px;
+		}
+
+		.case-grid {
+			display: grid;
+			gap: 18px;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.case-card {
 			background: #fff;
 			border: 1px solid rgba(108, 42, 142, .12);
-			border-radius: 28px;
-			box-shadow: 0 22px 55px rgba(30, 10, 46, .09);
+			border-radius: 8px;
+			box-shadow: 0 18px 42px rgba(30, 10, 46, .08);
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			padding: 24px;
 		}
 
-		.user-content h3,
-		.user-content strong {
+		.case-card.observed {
+			border-top: 6px solid var(--odps-violet);
+		}
+
+		.case-card.scenario {
+			border-top: 6px solid var(--odpg-green);
+		}
+
+		.case-label {
+			color: var(--odps-violet);
+			font-size: 13px;
+			font-weight: 800;
+			letter-spacing: .08em;
+			margin-bottom: 12px;
+			text-transform: uppercase;
+		}
+
+		.case-card.scenario .case-label {
+			color: var(--odpg-green);
+		}
+
+		.case-card h4 {
 			color: var(--odp-ink);
+			font-size: 22px;
+			font-weight: 800;
+			line-height: 1.2;
+			margin: 0 0 12px;
 		}
 
-		.user-content ul li {
-			background: #fbf9fd;
+		.case-card p {
+			color: #3c3046;
+			font-size: 17px;
+			line-height: 1.58;
+			margin-bottom: 16px;
+		}
+
+		.case-card a {
+			font-weight: 700;
+			margin-top: auto;
+		}
+
+		.case-note {
+			background: rgba(108, 42, 142, .08);
 			border: 1px solid rgba(108, 42, 142, .12);
-			border-radius: 16px;
-			color: #55475f;
+			border-radius: 8px;
+			color: #3c3046;
 			font-size: 16px;
-			font-weight: 600;
-			line-height: 1.45;
-			padding: 14px 16px;
-		}
-
-		.user-content ul li img {
-			background: var(--odps-violet);
-			border-radius: 999px;
-			height: 20px;
-			margin-top: 2px;
-			padding: 4px;
-			width: 20px;
-		}
-
-		.fit-img {
-			border-radius: 24px;
+			line-height: 1.55;
+			margin-top: 24px;
+			padding: 18px 20px;
 		}
 
 		.dvelopment-img {
@@ -1274,8 +1385,26 @@
 		}
 
 		@media (max-width: 1199px) {
-			.family-flow {
-				grid-template-columns: repeat(2, 1fr);
+			.standards-card-row {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			.standards-card-row>[class*="col-"],
+			.standards-card-row>[class*="col-"]:nth-child(4),
+			.standards-card-row>[class*="col-"]:nth-child(5) {
+				grid-column: auto;
+			}
+
+			.standout-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.case-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.standout-item:first-child {
+				grid-column: auto;
 			}
 
 			.sdk-flow-row {
@@ -1301,7 +1430,6 @@
 
 		@media (max-width: 767px) {
 			.family-card,
-			.flow-card,
 			.agent-panel {
 				padding: 22px;
 			}
@@ -1316,8 +1444,13 @@
 				padding: 24px 22px;
 			}
 
-			.family-flow {
+			.standards-card-row {
 				grid-template-columns: 1fr;
+			}
+
+			.standout-item {
+				grid-template-columns: 1fr;
+				padding: 22px;
 			}
 
 			.sdk-copy {
@@ -1484,7 +1617,7 @@
 	<section class="state-section">
 		<div class="container">
 			<h2>— <strong>Open Data Products Standards Family</strong> — <br>
-				<strong>ODPS</strong> defines the product, <strong>ODPC</strong> organizes catalogs, <strong>ODPG</strong> connects value relationships, and <strong>ODPV</strong> keeps vocabulary consistent for people, platforms, and AI agents.
+				<strong>ODPS</strong> defines the product, <strong>ODPC</strong> organizes catalogs, <strong>ODPG</strong> connects value relationships, <strong>ODPV</strong> keeps vocabulary consistent, and draft <strong>ODPR</strong> declares repeatable workflows for people, platforms, and AI agents.
 			</h2>
 		</div>
 	</section>
@@ -1495,7 +1628,7 @@
 				<h2>The Standards Family</h2>
 				<p>The Open Data Products standards family gives data products a shared structure. Each standard has a clear role. Together, they help humans, platforms, and AI agents understand how data products are defined, organized, connected, and interpreted.</p>
 			</div>
-			<div class="row">
+			<div class="row standards-card-row">
 				<div class="col-lg-3 col-md-6 mar-bottom wow fadeInUp" data-wow-delay=".3s">
 					<div class="family-card">
 						<span class="standard-badge badge-odps">ODPS</span>
@@ -1528,6 +1661,14 @@
 						<a href="https://opendataproducts.org/odpv-v1.0/#open-data-product-vocabulary-the-linux-foundation" target="_blank" rel="noopener">Read ODPV 1.0</a>
 					</div>
 				</div>
+				<div class="col-lg-3 col-md-6 mar-bottom wow fadeInUp" data-wow-delay=".7s">
+					<div class="family-card odpr">
+						<span class="standard-badge badge-odpr">ODPR</span>
+						<h3>Recipe Draft</h3>
+						<p><strong>Open Data Product Recipes.</strong> Draft specification for repeatable data product workflows, execution modes, provider profiles, gates, and review steps.</p>
+						<a href="https://opendataproducts.org/odpr-v1.0/" target="_blank" rel="noopener">Read ODPR 1.0 Draft</a>
+					</div>
+				</div>
 			</div>
 			<div class="gobal-btn theme-btn text-center">
 				<a href="#versions">Find specs, schemas, examples, and source repositories</a>
@@ -1535,33 +1676,90 @@
 		</div>
 	</section>
 
-	<section class="section-padding" id="family-works" style="background-color: var(--odp-soft);">
+	<section class="section-padding standout-section" id="why-standards">
 		<div class="container">
 			<div class="center-title wow fadeInUp" data-wow-delay=".3s">
-				<h2>One Language for Data Products</h2>
-				<p>The family creates a context layer for data products. It helps people understand the portfolio, platforms exchange metadata, and AI agents reason across products, use cases, objectives, KPIs, and signals.</p>
+				<h2>Why the ODPS Family Stands Out</h2>
+				<p>The standards family is designed for practical data product operations, not just metadata documentation. It connects business intent, machine-readable structure, governance, automation, and agent-ready context.</p>
 			</div>
-			<div class="family-flow wow fadeInUp" data-wow-delay=".5s">
-				<div class="flow-card">
-					<span class="standard-badge badge-odps">ODPS</span>
-					<h3>Defines the Product</h3>
-					<p>Business, technical, governance, quality, access, pricing, and strategy metadata for one data product.</p>
-				</div>
-				<div class="flow-card odpc">
-					<span class="standard-badge badge-odpc">ODPC</span>
-					<h3>Organizes Catalogs</h3>
-					<p>Portfolio objects that group products by catalogs, use cases, objectives, KPIs, and signals.</p>
-				</div>
-				<div class="flow-card odpg">
-					<span class="standard-badge badge-odpg">ODPG</span>
-					<h3>Connects Value</h3>
-					<p>Graph relationships that show how products, use cases, objectives, policies, and agents depend on each other.</p>
-				</div>
-				<div class="flow-card odpv">
-					<span class="standard-badge badge-odpv">ODPV</span>
-					<h3>Shares Meaning</h3>
-					<p>Controlled terms and relationship vocabulary so the family is interpreted consistently.</p>
-				</div>
+			<div class="standout-grid">
+				<article class="standout-item wow fadeInUp" data-wow-delay=".3s">
+					<span class="standout-number">1</span>
+					<div>
+						<h3>It treats data as a product, not only an asset description</h3>
+						<p>Most metadata standards describe datasets. ODPS describes the product around the data, which is closer to how businesses buy, manage, and scale data products.</p>
+						<ul class="standout-tags">
+							<li>Value proposition</li>
+							<li>Use cases</li>
+							<li>Pricing</li>
+							<li>SLA</li>
+							<li>Data quality</li>
+							<li>Access</li>
+							<li>Licensing</li>
+							<li>Contracts</li>
+							<li>Governance</li>
+							<li>Strategy</li>
+						</ul>
+					</div>
+				</article>
+				<article class="standout-item wow fadeInUp" data-wow-delay=".4s">
+					<span class="standout-number">2</span>
+					<div>
+						<h3>It separates product, catalog, graph, and workflow concerns</h3>
+						<p>The family is modular instead of one large specification trying to do everything. Teams can use ODPS, ODPC, ODPG, ODPV, and draft ODPR where each one fits.</p>
+						<ul class="standout-tags">
+							<li>Product specs</li>
+							<li>Catalogs</li>
+							<li>Portfolios</li>
+							<li>Relationship graphs</li>
+							<li>Workflow recipes</li>
+						</ul>
+					</div>
+				</article>
+				<article class="standout-item wow fadeInUp" data-wow-delay=".5s">
+					<span class="standout-number">3</span>
+					<div>
+						<h3>It is built for humans and machines</h3>
+						<p>ODPS YAML stays the source of truth, while compact context formats, sidecars, SDK-generated artifacts, MCP-style access, and recipes make the same knowledge usable by platforms and AI agents.</p>
+						<ul class="standout-tags">
+							<li>YAML source of truth</li>
+							<li>TOON and GCF sidecars</li>
+							<li>SDK artifacts</li>
+							<li>MCP-style access</li>
+							<li>Agent customers</li>
+						</ul>
+					</div>
+				</article>
+				<article class="standout-item wow fadeInUp" data-wow-delay=".6s">
+					<span class="standout-number">4</span>
+					<div>
+						<h3>It connects governance to execution</h3>
+						<p>Many governance frameworks stop at policy. ODPS turns governance into structured, reviewable, machine-readable product information that supports governance by design.</p>
+						<ul class="standout-tags">
+							<li>SLA as code</li>
+							<li>Data quality as code</li>
+							<li>Pricing as code</li>
+							<li>Access rules</li>
+							<li>Contract references</li>
+							<li>KPI alignment</li>
+						</ul>
+					</div>
+				</article>
+				<article class="standout-item wow fadeInUp" data-wow-delay=".7s">
+					<span class="standout-number">5</span>
+					<div>
+						<h3>It turns scattered intent into a structured portfolio</h3>
+						<p>Product ideas, requirements, risks, and technical details often live in separate tools. The ODPS family gives companies a path to convert that material into product specs, catalogs, graphs, reusable profiles, recipes, and agent-ready context.</p>
+						<ul class="standout-tags">
+							<li>Product specs</li>
+							<li>Catalog views</li>
+							<li>Portfolio views</li>
+							<li>Relationship graphs</li>
+							<li>Reusable profiles</li>
+							<li>Agent-ready context</li>
+						</ul>
+					</div>
+				</article>
 			</div>
 		</div>
 	</section>
@@ -1572,8 +1770,8 @@
 				<div class="col-lg-6 wow fadeInLeft" data-wow-delay=".3s">
 					<span class="agent-kicker">Context for automation</span>
 					<h2>Built for AI Agents and Context Engineering</h2>
-					<p>AI agents need more than access to data. They need structured context that explains what a data product is, where it belongs, how it connects to business value, and which terms mean what.</p>
-					<p>The Open Data Products family supports this through machine-readable YAML and JSON, reusable schemas, shared vocabulary, graph relationships, examples, and tooling.</p>
+					<p>AI agents need more than access to data. They need structured context that explains what a data product is, where it belongs, how it connects to business value, which terms mean what, and which workflows are safe to run.</p>
+					<p>The Open Data Products family supports this through machine-readable YAML and JSON, reusable schemas, shared vocabulary, graph relationships, recipe workflows, examples, and tooling.</p>
 				</div>
 				<div class="col-lg-6 wow fadeInRight" data-wow-delay=".5s">
 					<div class="agent-panel">
@@ -1583,6 +1781,7 @@
 							<div class="agent-context-item"><i class="fas fa-book"></i>Shared vocabulary for consistent interpretation.</div>
 							<div class="agent-context-item"><i class="fas fa-project-diagram"></i>Graph model for relationships and value mapping.</div>
 							<div class="agent-context-item"><i class="fas fa-shield-alt"></i>Schemas for validation and safer workflows.</div>
+							<div class="agent-context-item"><i class="fas fa-tasks"></i>Recipes for repeatable delivery, review, and automation.</div>
 							<div class="agent-context-item"><i class="fas fa-robot"></i>Python SDK and MCP support for AI agent workflows.</div>
 						</div>
 					</div>
@@ -1598,7 +1797,7 @@
 					<div class="sdk-copy">
 						<span class="sdk-kicker">Python SDK + MCP server</span>
 						<h2>Turn standards files into agent workflows</h2>
-						<p>The Open Data Products Python SDK makes ODPS, ODPC, ODPG, and ODPV operational. Validate source files, detect document types, explain structures, search artifacts, traverse relationships, and expose the same standards-aware actions to AI agents through MCP.</p>
+						<p>The Open Data Products Python SDK makes ODPS, ODPC, ODPG, ODPV, and draft ODPR operational. Validate source files, detect document types, explain structures, search artifacts, traverse relationships, validate recipes, and expose the same standards-aware actions to AI agents through MCP.</p>
 						<div class="gobal-btn theme-btn sdk-actions">
 							<a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk" target="_blank" rel="noopener">View SDK on GitHub</a>
 							<a href="https://opendataproducts.org/sdk/" target="_blank" rel="noopener">Read SDK Docs</a>
@@ -1615,7 +1814,7 @@
 							<div class="sdk-node">
 								<small>Input</small>
 								<h3>Standards files</h3>
-								<p>ODPS product specs, ODPC catalogs, ODPG graphs, ODPV vocabulary, schemas, examples, and data contract artifacts.</p>
+								<p>ODPS product specs, ODPC catalogs, ODPG graphs, ODPV vocabulary, draft ODPR recipes, schemas, examples, and data contract artifacts.</p>
 							</div>
 							<div class="sdk-arrow" aria-hidden="true">
 								<i class="fas fa-arrow-right"></i>
@@ -1948,7 +2147,7 @@
 			<div class="center-title wow fadeInUp" data-wow-delay=".3s">
 				<h2>Resources</h2>
 				<p>Find the specifications, schemas, examples, repositories, and SDK resources for the Open Data Products standards family.</p>
-				<p>ODPS remains the foundation, with ODPC, ODPG, ODPV, and the Python SDK extending the family into catalogs, graph relationships, shared vocabulary, and AI agent workflows.</p>
+				<p>ODPS remains the foundation, with ODPC, ODPG, ODPV, draft ODPR, and the Python SDK extending the family into catalogs, graph relationships, shared vocabulary, repeatable recipes, and AI agent workflows.</p>
 			</div>
 			<div class="row">
 				<div class="col-lg-6 mar-bottom wow fadeInUp" data-wow-delay=".3s">
@@ -2022,6 +2221,24 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-lg-6 mar-bottom wow fadeInUp" data-wow-delay=".7s">
+					<div class="resource-card odpr">
+						<h3>Open Data Product Recipes 1.0 (DRAFT)</h3>
+						<div class="resource-body">
+							<ul>
+								<li><strong>Draft version:</strong> ODPR 1.0</li>
+								<li><strong>Release status:</strong> Version DRAFT</li>
+								<li><strong>Description:</strong> Recipe model for repeatable data product delivery workflows, provider profiles, execution modes, gates, and review steps.</li>
+								<li><strong>Specification:</strong> <a href="https://opendataproducts.org/odpr-v1.0/" target="_blank" rel="noopener">See the full specification.</a></li>
+								<li><strong>YAML Schema:</strong> <a href="https://opendataproducts.org/odpr-v1.0/schema/odpr.yaml" target="_blank" rel="noopener">YAML Schema.</a></li>
+								<li><strong>JSON Schema:</strong> <a href="https://opendataproducts.org/odpr-v1.0/schema/odpr.json" target="_blank" rel="noopener">JSON Schema.</a></li>
+								<li><strong>Source:</strong> <a href="https://github.com/Open-Data-Product-Initiative/odpr-v1.0" target="_blank" rel="noopener">See the source files.</a></li>
+								<li><strong>Issues:</strong> <a href="https://github.com/Open-Data-Product-Initiative/odpr-v1.0/issues" target="_blank" rel="noopener">See the issues.</a></li>
+								<li><strong>Knowledge Base:</strong> <a href="https://opendataproducts.org/howto/" target="_blank" rel="noopener">Examples and guidance.</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -2039,177 +2256,85 @@
 			</div>
 		</div>
 	</section>
-	<section id="userCase" class="section-padding">
+	<section id="userCase" class="section-padding case-section">
 		<div class="container">
 			<div class="center-title wow fadeInUp" data-wow-delay=".5s">
-				<h2>Use cases</h2>
-				<p>The following use cases show why a standards family matters. ODPS provides the product foundation, while ODPC, ODPG, and ODPV extend the model into catalog, graph, and vocabulary contexts.</p>
+				<h2>Where the Standards Family Fits</h2>
+				<p>These examples separate public adoption signals from plausible operating scenarios. The first group is grounded in public references. The second group shows practical patterns organizations can implement with ODPS, ODPC, ODPG, ODPV, and draft ODPR.</p>
 			</div>
 
-			<!-- First use case -->
-			<div class="row dis-flex bor-botom">
-				<div class="col-md-7">
-					<div class="user-content wow fadeInLeft" data-wow-delay=".5s">
-						<h3>Use Cases for Open Data Product Specification (ODPS)</h3>
-						<p><strong>Increase Internal Transparency and Data Reuse</strong><br>Many organizations struggle
-							with internal data silos, limiting data sharing and collaboration. A Harvard Business Review
-							study shows that companies treating data like a product reduce time to implement new use
-							cases by up to 90% and decrease costs by up to 30%. ODPS breaks down these silos with a
-							transparent, machine-readable metadata model, enhancing data discovery, comparison, and
-							reuse across business units.</p>
-						<ul>
-							<li><img src="images/check-mark.png" alt="">Provides a business-level data product
-								description model with 120+ attributes.</li>
-							<li><img src="images/check-mark.png" alt="">Supports adding use case examples and linking
-								related data products.</li>
-							<li><img src="images/check-mark.png" alt="">Defines data access with 9 attributes, enabling
-								easier data discovery and usage.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<img src="images/usercase1.png" alt="" class="fit-img wow fadeInRight" data-wow-delay=".5s">
-				</div>
-			</div>
-
-			<!-- Second use case (reversed) -->
-			<div class="row dis-flex bor-botom reverse-dis">
-				<div class="col-md-5">
-					<img src="images/usercase2.png" alt="" class="fit-img wow fadeInLeft" data-wow-delay=".5s">
-				</div>
-				<div class="col-md-7">
-					<div class="user-content wow fadeInRight" data-wow-delay=".5s">
-						<p><strong>Boost Sales by Highlighting Data Value</strong> <br>Data monetization often fails
-							because customers don't perceive value before purchasing. ODPS improves customer experience
-							by detailing data quality, usage conditions, governance, and alternatives. It offers a
-							comprehensive framework to convey the data product's value clearly, supporting informed
-							purchasing decisions.</p>
-						<ul>
-							<li><img src="images/check-mark.png" alt="">Includes 12 pricing plans, including freemium,
-								to allow value validation.</li>
-							<li><img src="images/check-mark.png" alt="">Provides a data quality framework with 8
-								indicators to build trust.</li>
-							<li><img src="images/check-mark.png" alt="">Offers a licensing model with 21 items to
-								communicate conditions and rights.</li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
-			
-
-			<!-- Third use case -->
-			<div class="row dis-flex bor-botom">
-				<div class="col-md-7">
-					<div class="user-content wow fadeInLeft" data-wow-delay=".5s">
-
-						<p><strong>Facilitate Data Product Team Collaboration</strong> <br>Transitioning to a
-							data-as-a-product approach changes team structures and responsibilities, requiring
-							cross-disciplinary collaboration. ODPS provides a standardized model to unify business,
-							technical, marketing, security, and legal efforts, facilitating effective collaboration and
-							reducing the need for custom solution</p>
-						<ul>
-							<li><img src="images/check-mark.png" alt="">Contains attributes for licensing, pricing, and
-								governance.</li>
-							<li><img src="images/check-mark.png" alt="">Supports marketing with detailed descriptions
-								and value propositions.</li>
-							<li><img src="images/check-mark.png" alt="">Enables automation with DataOps attributes and
-								standard access definitions.</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<img src="images/usercase4.png" alt="" class="fit-img wow fadeInRight" data-wow-delay=".5s">
+			<div class="case-block">
+				<h3>Observed adoption signals</h3>
+				<div class="case-grid">
+					<article class="case-card observed wow fadeInUp" data-wow-delay=".3s">
+						<span class="case-label">Observed signal</span>
+						<h4>AI-ready data product marketplace</h4>
+						<p>Alation positions its Data Products Builder and Marketplace around governed, machine-readable data products based on ODPS, with support for business users and AI agents.</p>
+						<a href="https://www.alation.com/product/data-products-builder-agent/" target="_blank" rel="noopener">View Alation Builder</a>
+					</article>
+					<article class="case-card observed wow fadeInUp" data-wow-delay=".4s">
+						<span class="case-label">Observed signal</span>
+						<h4>Interoperable data ecosystems</h4>
+						<p>FIWARE and ODPS announced collaboration to integrate reusable, interoperable data products with FIWARE's Business API Ecosystem for publishing, lifecycle management, and monetization.</p>
+						<a href="https://www.fiware.org/news/fiware-foundation-and-odps-join-forces-to-drive-next-generation-interoperable-data-ecosystems/" target="_blank" rel="noopener">Read FIWARE announcement</a>
+					</article>
+					<article class="case-card observed wow fadeInUp" data-wow-delay=".5s">
+						<span class="case-label">Observed signal</span>
+						<h4>Government service catalog metadata</h4>
+						<p>NIIS describes how ODPS can extend X-Road OAS service descriptions so data product metadata becomes more unified, higher quality, and easier to automate in service catalogs.</p>
+						<a href="https://www.niis.org/blog/2024/1/21/unveiling-the-open-data-product-specification" target="_blank" rel="noopener">Read NIIS article</a>
+					</article>
+					<article class="case-card observed wow fadeInUp" data-wow-delay=".6s">
+						<span class="case-label">Observed signal</span>
+						<h4>Civic and geospatial data spaces</h4>
+						<p>Beyond Civic lists ODPS support in its product release history, including ODPS 3.1, ODPS 4.0, and planned ODPS 4.1 support for AI-ready data collaboration.</p>
+						<a href="https://beyondcivic.com/product" target="_blank" rel="noopener">View Beyond Civic product</a>
+					</article>
+					<article class="case-card observed wow fadeInUp" data-wow-delay=".7s">
+						<span class="case-label">Attributed signal</span>
+						<h4>Enterprise-wide data product concept</h4>
+						<p>BASF's public testimonial says its group-wide data product concept was built largely on ODPS and extended to fit enterprise needs, especially complex non-technical aspects.</p>
+						<a href="https://opendataproducts.org/" target="_blank" rel="noopener">See ODPS testimonials</a>
+					</article>
 				</div>
 			</div>
 
-			<!-- Fourth use case (reversed) -->
-			<div class="row dis-flex bor-botom reverse-dis">
-				<div class="col-md-5">
-					<img src="images/usercase5.png" alt="" class="fit-img wow fadeInLeft" data-wow-delay=".5s">
+			<div class="case-block">
+				<h3>Plausible operating scenarios</h3>
+				<div class="case-grid">
+					<article class="case-card scenario wow fadeInUp" data-wow-delay=".3s">
+						<span class="case-label">Plausible scenario</span>
+						<h4>Enterprise portfolio governance</h4>
+						<p>A data office uses ODPS for product definitions, ODPC for portfolio grouping, ODPG for value and dependency mapping, and ODPV for consistent terms across domains.</p>
+					</article>
+					<article class="case-card scenario wow fadeInUp" data-wow-delay=".4s">
+						<span class="case-label">Plausible scenario</span>
+						<h4>Marketplace onboarding</h4>
+						<p>A platform team asks providers to publish ODPS files before listing products, making licensing, pricing, SLA, data quality, access, and ownership visible before consumption.</p>
+					</article>
+					<article class="case-card scenario wow fadeInUp" data-wow-delay=".5s">
+						<span class="case-label">Plausible scenario</span>
+						<h4>AI agent product discovery</h4>
+						<p>An agent searches product specs, catalogs, graph links, and vocabulary sidecars before deciding whether a product is useful, trusted, licensed, and fit for a business task.</p>
+					</article>
+					<article class="case-card scenario wow fadeInUp" data-wow-delay=".6s">
+						<span class="case-label">Plausible scenario</span>
+						<h4>Governance as executable product context</h4>
+						<p>Reusable SLA, data quality, access, contract, and pricing profiles are referenced across products so governance becomes reviewable metadata instead of scattered policy text.</p>
+					</article>
+					<article class="case-card scenario wow fadeInUp" data-wow-delay=".7s">
+						<span class="case-label">Plausible scenario</span>
+						<h4>Catalog-to-graph value mapping</h4>
+						<p>A portfolio team links products to use cases, objectives, KPIs, signals, systems, and agents so leaders can see which products support which business outcomes.</p>
+					</article>
+					<article class="case-card scenario wow fadeInUp" data-wow-delay=".8s">
+						<span class="case-label">Plausible scenario</span>
+						<h4>Repeatable release and review workflows</h4>
+						<p>Draft ODPR recipes declare validation, localization, review, release, and agent-safe automation steps so teams can repeat data product delivery with fewer hidden manual habits.</p>
+					</article>
 				</div>
-				<div class="col-md-7">
-					<div class="user-content wow fadeInRight" data-wow-delay=".5s">
-						<p><strong>Advance Open Data to the Next Level</strong><br>Traditional metadata standards like
-							DCAT are insufficient for the modern data marketplace. ODPS extends DCAT to support both
-							open and commercial data, improving discoverability, quality, and monetization
-							opportunities.</p>
-						<ul>
-							<li><img src="images/check-mark.png" alt="">Offers an 8-indicator data quality framework and
-								SLA specifications.</li>
-							<li><img src="images/check-mark.png" alt="">Supports open data monetization with pricing
-								plans and licensing flexibility.</li>
-
-						</ul>
-					</div>
-				</div>
-
+				<p class="case-note">Observed signals should be used as evidence. Plausible scenarios are implementation patterns that show where the standards family can be applied without implying a named organization has already done that exact workflow.</p>
 			</div>
-
-			<!-- Fifth use case -->
-			<div class="row dis-flex bor-botom">
-				<div class="col-md-7">
-					<div class="user-content wow fadeInLeft" data-wow-delay=".5s">
-
-						<p><strong>Ensure Consistency with Linting</strong><br>ODPS enables automated linting to
-							maintain consistent "look and feel" across data products, improving maintenance and user
-							experience. A machine-readable specification allows organizations to apply design guidelines
-							effectively.</p>
-						<ul>
-							<li><img src="images/check-mark.png" alt="">Facilitates early error detection and compliance
-								with design standards.</li>
-
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<img src="images/usercase6.png" alt="" class="fit-img wow fadeInRight" data-wow-delay=".5s">
-				</div>
-			</div>
-
-			<!-- Sixth use case (reversed) -->
-			<div class="row dis-flex bor-botom reverse-dis">
-				<div class="col-md-5">
-					<img src="images/usercase7.png" alt="" class="fit-img wow fadeInLeft" data-wow-delay=".5s">
-				</div>
-				<div class="col-md-7">
-					<div class="user-content wow fadeInRight" data-wow-delay=".5s">
-						<p><strong>Enrich API Access with Business Metadata</strong><br>ODPS integrates business
-							metadata into API specifications, providing a comprehensive view of data products, enhancing
-							usability, and supporting multiple languages for broader audience reach.</p>
-						<ul>
-							<li><img src="images/check-mark.png" alt="">Provides a standardized framework for API
-								descriptions with business metadata.</li>
-
-						</ul>
-					</div>
-				</div>
-
-			</div>
-
-
-			<!-- Seventh use case -->
-			<div class="row dis-flex bor-botom">
-				<div class="col-md-7">
-					<div class="user-content wow fadeInLeft" data-wow-delay=".5s">
-
-						<p><strong>Prototyping and Mocking for Product-Market Fit </strong><br>ODPS enables rapid
-							prototyping and mockups, allowing businesses to test product-market fit before full
-							development. It supports A/B testing and customer feedback gathering, minimizing waste and
-							guiding development.</p>
-						<ul>
-							<li><img src="images/check-mark.png" alt="">Allows easy generation of product views and
-								supports iterative testing and feedback loops.</li>
-
-						</ul>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<img src="images/usercase8.png" alt="" class="fit-img wow fadeInRight" data-wow-delay=".5s">
-				</div>
-			</div>
-
-
 		</div>
 	</section>
 
@@ -2371,6 +2496,7 @@
 						<li><a href="https://opendataproducts.org/odpv-v1.0/" target="_blank">Open Data Product Vocab</a></li>
 						<li><a href="https://opendataproducts.org/odpg-v1.0/" target="_blank">Open Data Product Graphs</a></li>
 						<li><a href="https://opendataproducts.org/odpc-v1.0/" target="_blank">Open Data Product Catalogs</a></li>
+						<li><a href="https://opendataproducts.org/odpr-v1.0/" target="_blank">Open Data Product Recipes (Draft)</a></li>
 						
 					</ul>
 				</div>
