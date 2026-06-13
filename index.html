@@ -571,6 +571,10 @@
 			align-items: stretch;
 		}
 
+		.sdk-product-block {
+			margin-bottom: 42px;
+		}
+
 		.sdk-copy {
 			display: flex;
 			flex-direction: column;
@@ -605,6 +609,63 @@
 
 		.sdk-actions {
 			margin-top: 6px;
+		}
+
+		.sdk-metrics {
+			display: grid;
+			gap: 14px;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			margin: 4px 0 8px;
+			max-width: 620px;
+		}
+
+		.sdk-metrics.sdk-single-metric {
+			grid-template-columns: minmax(0, 1fr);
+			max-width: 260px;
+		}
+
+		.sdk-metrics.spec-helper-metrics {
+			grid-template-columns: repeat(2, minmax(0, 220px));
+			justify-content: center;
+			margin-bottom: 22px;
+			max-width: none;
+		}
+
+		.sdk-metric {
+			background: #fff;
+			border: 1px solid rgba(108, 42, 142, .14);
+			border-radius: 16px;
+			box-shadow: 0 12px 30px rgba(30, 10, 46, .07);
+			padding: 16px;
+		}
+
+		.sdk-metric.sdk-main {
+			border-top: 5px solid var(--odps-violet);
+		}
+
+		.sdk-metric.spec-helper {
+			border-top: 5px solid var(--odpc-orange);
+		}
+
+		.sdk-metric.spec-count {
+			border-top: 5px solid var(--odpg-green);
+		}
+
+		.sdk-metric strong {
+			color: var(--odp-ink);
+			display: block;
+			font-size: 32px;
+			font-weight: 800;
+			line-height: 1;
+			margin-bottom: 6px;
+		}
+
+		.sdk-metric span {
+			color: #55475f;
+			display: block;
+			font-size: 13px;
+			font-weight: 700;
+			line-height: 1.35;
 		}
 
 		.sdk-quickstart {
@@ -645,18 +706,40 @@
 			padding: 26px;
 		}
 
-		.sdk-flow-row {
-			align-items: center;
-			display: grid;
-			gap: 16px;
-			grid-template-columns: 1fr auto 1fr;
+		.spec-helper-section {
+			background: #fff;
+			border: 1px solid rgba(108, 42, 142, .12);
+			border-radius: 28px;
+			box-shadow: 0 22px 55px rgba(30, 10, 46, .09);
+			padding: 34px;
+		}
+
+		.spec-helper-copy {
+			margin: 0 auto 22px;
+			max-width: 820px;
+			text-align: center;
+		}
+
+		.spec-helper-copy h2 {
+			color: var(--odp-ink);
+			font-size: clamp(30px, 3.4vw, 46px);
+			font-weight: 800;
+			line-height: 1.08;
+			margin-bottom: 14px;
+		}
+
+		.spec-helper-copy p {
+			color: #3c3046;
+			font-size: 18px;
+			line-height: 1.6;
+			margin: 0;
 		}
 
 		.sdk-node {
 			background: #fbf9fd;
 			border: 1px solid rgba(108, 42, 142, .14);
 			border-radius: 20px;
-			min-height: 158px;
+			min-height: 145px;
 			padding: 22px;
 		}
 
@@ -665,6 +748,55 @@
 			color: #fff;
 			grid-column: 1 / -1;
 			min-height: auto;
+		}
+
+		.sdk-spec-grid {
+			display: grid;
+			gap: 14px;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.sdk-spec-card {
+			background: #fff;
+			border: 1px solid rgba(108, 42, 142, .12);
+			border-radius: 18px;
+			border-top: 5px solid var(--odps-violet);
+			padding: 18px;
+		}
+
+		.sdk-spec-card.odpc {
+			border-top-color: var(--odpc-orange);
+		}
+
+		.sdk-spec-card.odpg {
+			border-top-color: var(--odpg-green);
+		}
+
+		.sdk-spec-card.odpv {
+			border-top-color: var(--odpv-blue);
+		}
+
+		.sdk-spec-card.odpr {
+			border-top-color: var(--odpr-rose);
+		}
+
+		.sdk-spec-count {
+			align-items: baseline;
+			color: var(--odp-ink);
+			display: flex;
+			font-weight: 800;
+			gap: 8px;
+			margin-bottom: 8px;
+		}
+
+		.sdk-spec-count strong {
+			font-size: 34px;
+			line-height: 1;
+		}
+
+		.sdk-spec-count span {
+			font-size: 14px;
+			text-transform: uppercase;
 		}
 
 		.sdk-node small {
@@ -701,18 +833,6 @@
 
 		.sdk-node.sdk-bridge p {
 			color: rgba(255, 255, 255, .86);
-		}
-
-		.sdk-arrow {
-			align-items: center;
-			background: var(--odps-violet);
-			border-radius: 999px;
-			color: #fff;
-			display: flex;
-			font-size: 17px;
-			height: 42px;
-			justify-content: center;
-			width: 42px;
 		}
 
 		.sdk-tool-grid {
@@ -967,6 +1087,51 @@
 			line-height: 1.65;
 			margin: 0 auto;
 			max-width: 880px;
+		}
+
+		.knowledge-metrics {
+			display: grid;
+			gap: 14px;
+			grid-template-columns: repeat(5, minmax(0, 1fr));
+			margin: 28px auto 4px;
+			max-width: 1040px;
+			position: relative;
+			z-index: 2;
+		}
+
+		.knowledge-metric {
+			background: rgba(255, 255, 255, .1);
+			border: 1px solid rgba(255, 255, 255, .18);
+			border-radius: 16px;
+			box-shadow: 0 16px 38px rgba(0, 0, 0, .14);
+			padding: 18px 14px;
+			text-align: left;
+		}
+
+		.knowledge-metric strong {
+			color: #f6d365;
+			display: block;
+			font-size: 34px;
+			font-weight: 800;
+			line-height: 1;
+			margin-bottom: 8px;
+		}
+
+		.knowledge-metric span {
+			color: #fff;
+			display: block;
+			font-size: 14px;
+			font-weight: 800;
+			line-height: 1.25;
+		}
+
+		.knowledge-metric small {
+			color: rgba(255, 255, 255, .72);
+			display: block;
+			font-size: 12px;
+			font-weight: 600;
+			line-height: 1.35;
+			margin-top: 7px;
 		}
 
 		.cta .gobal-btn a,
@@ -1454,15 +1619,6 @@
 			.standout-item:first-child {
 				grid-column: auto;
 			}
-
-			.sdk-flow-row {
-				grid-template-columns: 1fr;
-			}
-
-			.sdk-arrow {
-				justify-self: center;
-				transform: rotate(90deg);
-			}
 		}
 
 		@media (min-width: 768px) and (max-width: 1199px) {
@@ -1509,8 +1665,24 @@
 				font-size: 17px;
 			}
 
+			.sdk-metrics,
+			.sdk-spec-grid,
+			.knowledge-metrics {
+				grid-template-columns: 1fr;
+			}
+
+			.sdk-metrics.sdk-single-metric,
+			.sdk-metrics.spec-helper-metrics {
+				grid-template-columns: 1fr;
+				max-width: none;
+			}
+
 			.sdk-flow-board {
 				padding: 18px;
+			}
+
+			.spec-helper-section {
+				padding: 20px;
 			}
 
 			.sdk-tool-grid {
@@ -1612,7 +1784,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a href="#sdk">SDK</a>
+							<a href="#sdk">Tools</a>
 						</li>
 
 						<li class="nav-item nav-bton">
@@ -1847,12 +2019,18 @@
 
 	<section class="section-padding sdk-section" id="sdk">
 		<div class="container">
-			<div class="row dis-flex sdk-showcase">
+			<div class="row dis-flex sdk-showcase sdk-product-block">
 				<div class="col-lg-6 wow fadeInLeft" data-wow-delay=".3s">
 					<div class="sdk-copy">
-						<span class="sdk-kicker">Python SDK + MCP server</span>
-						<h2>Turn standards files into agent workflows</h2>
-						<p>The Open Data Products Python SDK makes ODPS, ODPC, ODPG, ODPV, and draft ODPR operational. Validate source files, detect document types, explain structures, search artifacts, traverse relationships, validate workflow contracts, and expose the same standards-aware actions to AI agents through MCP.</p>
+						<span class="sdk-kicker">Installable SDK</span>
+						<h2>Open Data Products Python SDK</h2>
+						<p>The SDK is the installable product for day-to-day work across ODPS, ODPC, ODPG, ODPV, and draft ODPR. It gives teams one command surface for validation, inspection, generation, portfolio workflows, contract checks, and MCP access.</p>
+						<div class="sdk-metrics sdk-single-metric" aria-label="Open Data Products SDK CLI workflow count">
+							<div class="sdk-metric sdk-main">
+								<strong>39</strong>
+								<span>CLI workflows in one SDK install</span>
+							</div>
+						</div>
 						<div class="gobal-btn theme-btn sdk-actions">
 							<a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk" target="_blank" rel="noopener">View SDK on GitHub</a>
 							<a href="https://opendataproducts.org/sdk/" target="_blank" rel="noopener">Read SDK Docs</a>
@@ -1864,32 +2042,53 @@
 					</div>
 				</div>
 				<div class="col-lg-6 wow fadeInRight" data-wow-delay=".5s">
-					<div class="sdk-flow-board" aria-label="SDK workflow from standards files to AI agent actions">
-						<div class="sdk-flow-row">
-							<div class="sdk-node">
-								<small>Input</small>
-								<h3>Standards files</h3>
-								<p>ODPS product specs, ODPC catalogs, ODPG graphs, ODPV vocabulary, draft ODPR workflow contracts, schemas, examples, and data contract artifacts.</p>
-							</div>
-							<div class="sdk-arrow" aria-hidden="true">
-								<i class="fas fa-arrow-right"></i>
-							</div>
-							<div class="sdk-node">
-								<small>Output</small>
-								<h3>Agent-ready context</h3>
-								<p>Validated metadata, readable explanations, searchable structures, relationship paths, and summarized product context.</p>
-							</div>
-						</div>
+					<div class="sdk-flow-board" aria-label="Open Data Products tool surfaces">
 						<div class="sdk-node sdk-bridge">
-							<small>Execution layer</small>
-							<h3>One toolkit across CLI, Python, and MCP</h3>
+							<small>SDK layer</small>
+							<h3>One install for CLI, Python, MCP, and agent workflows</h3>
 							<div class="sdk-tool-grid">
-								<div class="sdk-tool"><i class="fas fa-check-circle"></i>Validate</div>
-								<div class="sdk-tool"><i class="fas fa-search"></i>Search</div>
-								<div class="sdk-tool"><i class="fas fa-project-diagram"></i>Traverse</div>
-								<div class="sdk-tool"><i class="fas fa-robot"></i>Expose MCP tools</div>
+								<div class="sdk-tool"><i class="fas fa-check-circle"></i>Validate and explain files</div>
+								<div class="sdk-tool"><i class="fas fa-clipboard-check"></i>Audit ODPS products</div>
+								<div class="sdk-tool"><i class="fas fa-search"></i>Search catalogs and vocabulary</div>
+								<div class="sdk-tool"><i class="fas fa-project-diagram"></i>Build and traverse graphs</div>
+								<div class="sdk-tool"><i class="fas fa-robot"></i>Serve MCP tools</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="spec-helper-section wow fadeInUp" data-wow-delay=".3s">
+				<div class="spec-helper-copy">
+					<span class="sdk-kicker">Spec helper scripts</span>
+					<h2>Dedicated helper tools in each companion spec</h2>
+					<p>The companion specification repositories also include source-level utilities for artifact generation, validation, search, graph reasoning, vocabulary alignment, and draft recipe checks.</p>
+				</div>
+				<div class="sdk-metrics spec-helper-metrics" aria-label="Open Data Products spec helper script counts">
+					<div class="sdk-metric spec-helper">
+						<strong>22</strong>
+						<span>source-level helper scripts</span>
+					</div>
+					<div class="sdk-metric spec-count">
+						<strong>4</strong>
+						<span>companion specs with dedicated helpers</span>
+					</div>
+				</div>
+				<div class="sdk-spec-grid">
+					<div class="sdk-spec-card odpc">
+						<div class="sdk-spec-count"><strong>6</strong><span>ODPC tools</span></div>
+						<p>Build, validate, explain, search, regenerate, and check catalog artifacts.</p>
+					</div>
+					<div class="sdk-spec-card odpg">
+						<div class="sdk-spec-count"><strong>7</strong><span>ODPG tools</span></div>
+						<p>Validate, convert, summarize, traverse, analyze, extract agent context, and render graph explorers.</p>
+					</div>
+					<div class="sdk-spec-card odpv">
+						<div class="sdk-spec-count"><strong>5</strong><span>ODPV tools</span></div>
+						<p>Generate vocabulary artifacts, validate terms, search, resolve agent context, and detect cross-spec drift.</p>
+					</div>
+					<div class="sdk-spec-card odpr">
+						<div class="sdk-spec-count"><strong>4</strong><span>ODPR tools</span></div>
+						<p>Validate recipes, search recipe patterns, regenerate artifacts, and check agent-facing workflow resources.</p>
 					</div>
 				</div>
 			</div>
@@ -2302,10 +2501,37 @@
 			<img src="images/loog-2025.png" width="250" alt="">
 			<h2>Knowledge Base</h2>
 			<p>
-				Your playbook for defining, cataloging, connecting, governing, and launching data products, now made practical. Dive into real-world guidance, clear documentation, and step-by-step examples that help you move beyond theory and into execution.  
+				Your playbook for defining, cataloging, connecting, governing, and launching data products, now made practical. Dive into real-world guidance, clear documentation, and step-by-step examples that help you move beyond theory and into execution.
 				<br><br>
 				Explore standards family examples to see how data products can be structured, cataloged, connected, and interpreted for human and AI workflows.
 			  </p>
+			<div class="knowledge-metrics" aria-label="Open Data Products Knowledge Base content counts">
+				<div class="knowledge-metric">
+					<strong>34</strong>
+					<span>FAQs</span>
+					<small>ODPS, ODPC, ODPV, AI, validation, pricing, quality, access, and reuse guidance.</small>
+				</div>
+				<div class="knowledge-metric">
+					<strong>14</strong>
+					<span>YAML examples</span>
+					<small>Reusable snippets for products, catalogs, vocabulary, contracts, pricing, SLA, and DQ.</small>
+				</div>
+				<div class="knowledge-metric">
+					<strong>12</strong>
+					<span>SDK guides</span>
+					<small>Self-contained lessons for setup, validation, vocabulary helpers, ODPG, and LLM workflows.</small>
+				</div>
+				<div class="knowledge-metric">
+					<strong>7</strong>
+					<span>tools and downloads</span>
+					<small>SDK, ODPC and ODPV tools, YAML Builder, toolkit, whitepaper, and ODPS Python Library.</small>
+				</div>
+				<div class="knowledge-metric">
+					<strong>4</strong>
+					<span>training courses</span>
+					<small>Structured MasterClasses for ODPS, monetization, product thinking, and governance.</small>
+				</div>
+			</div>
 			<div class="gobal-btn">
 				<a href="https://opendataproducts.org/howto/" target="_blank" rel="noopener">Explore More</a>
 			</div>
