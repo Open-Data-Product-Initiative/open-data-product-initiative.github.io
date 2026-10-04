@@ -254,6 +254,14 @@
 			margin-top: auto;
 		}
 
+		.family-card .learning-link {
+			border-top: 1px solid rgba(108, 42, 142, .12);
+			font-size: 14px;
+			line-height: 1.4;
+			margin-top: 14px;
+			padding-top: 12px;
+		}
+
 		.family-card:hover {
 			box-shadow: 0 28px 60px rgba(30, 10, 46, .14);
 			transform: translateY(-4px);
@@ -500,6 +508,35 @@
 			font-weight: 700;
 			line-height: 1.2;
 			padding: 8px 11px;
+		}
+
+		.topic-learning {
+			align-items: center;
+			border-top: 1px solid rgba(108, 42, 142, .12);
+			display: flex;
+			gap: 16px;
+			justify-content: space-between;
+			margin-top: 18px;
+			padding-top: 14px;
+		}
+
+		.topic-learning span {
+			color: #55475f;
+			font-size: 14px;
+			line-height: 1.45;
+		}
+
+		.topic-learning a {
+			color: var(--odps-violet);
+			font-size: 14px;
+			font-weight: 800;
+			white-space: nowrap;
+		}
+
+		.standout-item:not(:first-child) .topic-learning {
+			align-items: flex-start;
+			flex-direction: column;
+			gap: 8px;
 		}
 
 		.agent-section {
@@ -1097,7 +1134,7 @@
 		.knowledge-metrics {
 			display: grid;
 			gap: 14px;
-			grid-template-columns: repeat(5, minmax(0, 1fr));
+			grid-template-columns: repeat(4, minmax(0, 1fr));
 			margin: 28px auto 4px;
 			max-width: 1040px;
 			position: relative;
@@ -1137,6 +1174,67 @@
 			font-weight: 600;
 			line-height: 1.35;
 			margin-top: 7px;
+		}
+
+		.learning-paths {
+			margin: 34px auto 0;
+			max-width: 1040px;
+			position: relative;
+			text-align: left;
+			z-index: 2;
+		}
+
+		.learning-paths h3 {
+			color: #fff;
+			font-size: 24px;
+			font-weight: 800;
+			margin-bottom: 8px;
+		}
+
+		.cta .learning-paths > p {
+			color: rgba(255, 255, 255, .76);
+			font-size: 16px;
+			margin: 0 0 18px;
+			max-width: none;
+			text-align: left;
+		}
+
+		.course-grid {
+			display: grid;
+			gap: 14px;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.course-card {
+			background: rgba(255, 255, 255, .09);
+			border: 1px solid rgba(255, 255, 255, .18);
+			border-radius: 16px;
+			display: flex;
+			flex-direction: column;
+			padding: 18px;
+		}
+
+		.course-card h4 {
+			color: #fff;
+			font-size: 18px;
+			font-weight: 800;
+			line-height: 1.3;
+			margin: 0 0 8px;
+		}
+
+		.cta .course-card p {
+			color: rgba(255, 255, 255, .72);
+			font-size: 14px;
+			line-height: 1.5;
+			margin: 0 0 14px;
+			text-align: left;
+		}
+
+		.course-card a {
+			color: #f6d365;
+			font-size: 14px;
+			font-weight: 800;
+			margin-top: auto;
 		}
 
 		.cta .gobal-btn a,
@@ -1542,6 +1640,21 @@
 			white-space: normal;
 		}
 
+		#sdk .sdk-actions {
+			display: grid;
+			gap: 10px;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			max-width: 620px;
+		}
+
+		#sdk .sdk-actions a {
+			font-size: 14px;
+			line-height: 1.35;
+			min-height: 64px;
+			padding: 12px 14px;
+			width: 100%;
+		}
+
 		#start-building-CTA {
 			justify-content: center;
 		}
@@ -1681,8 +1794,23 @@
 
 			.sdk-metrics,
 			.sdk-spec-grid,
-			.knowledge-metrics {
+			.knowledge-metrics,
+			.course-grid {
 				grid-template-columns: 1fr;
+			}
+
+			#sdk .sdk-actions {
+				grid-template-columns: 1fr;
+			}
+
+			.topic-learning {
+				align-items: flex-start;
+				flex-direction: column;
+				gap: 8px;
+			}
+
+			.topic-learning a {
+				white-space: normal;
 			}
 
 			.sdk-metrics.sdk-single-metric,
@@ -1876,6 +2004,7 @@
 						<h3>Product</h3>
 						<p><strong>Open Data Product Specification.</strong> Defines the data product, including metadata, access, quality, SLA, license, pricing, and strategy.</p>
 						<a href="https://opendataproducts.org/v4.1/" target="_blank" rel="noopener">Read ODPS 4.1</a>
+						<a class="learning-link" href="https://www.udemy.com/course/master-the-open-data-product-specification-with-gpt-tool/?referralCode=7602F38C9E58976291A3" target="_blank" rel="noopener noreferrer">Learn ODPS step by step</a>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 mar-bottom wow fadeInUp" data-wow-delay=".4s">
@@ -1941,6 +2070,10 @@
 							<li>Governance</li>
 							<li>Strategy</li>
 						</ul>
+						<div class="topic-learning">
+							<span>A practical MasterClass for moving from data assets to managed data products with users, value, and measurable outcomes.</span>
+							<a href="https://www.udemy.com/course/data-product-mindset/?referralCode=548AA9F02E100D61D284" target="_blank" rel="noopener noreferrer">Learn Data Product Thinking</a>
+						</div>
 					</div>
 				</article>
 				<article class="standout-item wow fadeInUp" data-wow-delay=".4s">
@@ -1984,6 +2117,10 @@
 							<li>Contract references</li>
 							<li>KPI alignment</li>
 						</ul>
+						<div class="topic-learning">
+							<span>Learn pricing models, commercial agreements, and practical approaches to creating measurable value from data products.</span>
+							<a href="https://www.udemy.com/course/data-product-monetization-masterclass/?referralCode=53941B985FBFA582CBC7" target="_blank" rel="noopener noreferrer">Learn Data Product Monetization</a>
+						</div>
 					</div>
 				</article>
 				<article class="standout-item wow fadeInUp" data-wow-delay=".7s">
@@ -2055,6 +2192,7 @@
 						<div class="gobal-btn theme-btn sdk-actions">
 							<a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk" target="_blank" rel="noopener">View SDK on GitHub</a>
 							<a href="https://opendataproducts.org/sdk/" target="_blank" rel="noopener">Read SDK Docs</a>
+							<a href="https://www.udemy.com/course/scalable-data-product-value-management-with-agent-ready-sdk/?referralCode=DE23AF7C13D47E90B996" target="_blank" rel="noopener noreferrer">Take the SDK MasterClass</a>
 						</div>
 						<div class="sdk-quickstart" aria-label="Quickstart install command">
 							<span>Quickstart</span>
@@ -2547,10 +2685,31 @@
 					<span>tools and downloads</span>
 					<small>SDK, ODPC and ODPV tools, YAML Builder, toolkit, whitepaper, and ODPS Python Library.</small>
 				</div>
-				<div class="knowledge-metric">
-					<strong>4</strong>
-					<span>training courses</span>
-					<small>Structured MasterClasses for ODPS, monetization, product thinking, and governance.</small>
+			</div>
+			<div class="learning-paths">
+				<h3>Guided learning paths</h3>
+				<p>Learn the concepts, understand the standards, develop the commercial model, and build with the SDK.</p>
+				<div class="course-grid">
+					<article class="course-card">
+						<h4>Data Product MasterClass</h4>
+						<p>Learn product thinking, use cases, customer value, and how to manage data as a product.</p>
+						<a href="https://www.udemy.com/course/data-product-mindset/?referralCode=548AA9F02E100D61D284" target="_blank" rel="noopener noreferrer">View Data Product MasterClass</a>
+					</article>
+					<article class="course-card">
+						<h4>Master the Leading Open Data Product Specification</h4>
+						<p>Learn the structure of ODPS and how to create machine-readable data product definitions.</p>
+						<a href="https://www.udemy.com/course/master-the-open-data-product-specification-with-gpt-tool/?referralCode=7602F38C9E58976291A3" target="_blank" rel="noopener noreferrer">View ODPS MasterClass</a>
+					</article>
+					<article class="course-card">
+						<h4>Data Product Monetization MasterClass</h4>
+						<p>Learn pricing, agreements, monetization models, and ways to connect data products to measurable business value.</p>
+						<a href="https://www.udemy.com/course/data-product-monetization-masterclass/?referralCode=53941B985FBFA582CBC7" target="_blank" rel="noopener noreferrer">View Monetization MasterClass</a>
+					</article>
+					<article class="course-card">
+						<h4>AI-Ready Data Products with the SDK</h4>
+						<p>Learn how to work with ODPS, ODPC, ODPG, and related standards through the Open Data Products Python SDK.</p>
+						<a href="https://www.udemy.com/course/scalable-data-product-value-management-with-agent-ready-sdk/?referralCode=DE23AF7C13D47E90B996" target="_blank" rel="noopener noreferrer">View SDK MasterClass</a>
+					</article>
 				</div>
 			</div>
 			<div class="gobal-btn">
@@ -2871,10 +3030,12 @@
 					<ul>
 						<li><a href="https://opendataproducts.org/howto/" target="_blank">HowTos Knowledge Base</a></li>
 						<li><a href="https://opendataproducts.org/sdk/" target="_blank">Open Data Products SDK</a></li>
-						<li><a href="https://www.udemy.com/course/scalable-data-product-value-management-with-agent-ready-sdk/?referralCode=DE23AF7C13D47E90B996" target="_blank">Data Product SDK MasterClass</a></li>
 						<li><a href="https://github.com/Accenture/odps-python" target="_blank">OPDS Python Library (by Accenture)</a></li>
 						<li><a href="https://github.com/Open-Data-Product-Initiative/odp-agent-sdk" target="_blank">AI Agent Toolkit</a></li>
-						<li><a href="https://www.udemy.com/course/master-the-open-data-product-specification-with-gpt-tool" target="_blank">Udemy MasterClass</a></li>
+						<li><a href="https://www.udemy.com/course/data-product-mindset/?referralCode=548AA9F02E100D61D284" target="_blank" rel="noopener noreferrer">Data Product MasterClass</a></li>
+						<li><a href="https://www.udemy.com/course/master-the-open-data-product-specification-with-gpt-tool/?referralCode=7602F38C9E58976291A3" target="_blank" rel="noopener noreferrer">ODPS MasterClass</a></li>
+						<li><a href="https://www.udemy.com/course/data-product-monetization-masterclass/?referralCode=53941B985FBFA582CBC7" target="_blank" rel="noopener noreferrer">Monetization MasterClass</a></li>
+						<li><a href="https://www.udemy.com/course/scalable-data-product-value-management-with-agent-ready-sdk/?referralCode=DE23AF7C13D47E90B996" target="_blank" rel="noopener noreferrer">SDK MasterClass</a></li>
 						<li><a href="https://chatgpt.com/g/g-687a26b92c20819182e92a8641fbd02f-yaml-builder-for-open-data-products" target="_blank">ODPS OpenAI GPT</a></li>
 						<li><a href="https://github.com/Open-Data-Product-Initiative" target="_blank">Github home</a></li>
 						<li><a href="https://blog.opendataproducts.org/" target="_blank">Blog posts in Medium</a></li>
