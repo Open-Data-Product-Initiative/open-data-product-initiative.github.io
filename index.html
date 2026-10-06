@@ -539,6 +539,131 @@
 			gap: 8px;
 		}
 
+		.framework-section {
+			background: #f3eef6;
+		}
+
+		.framework-intro {
+			align-items: end;
+			display: grid;
+			gap: 48px;
+			grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+			margin-bottom: 42px;
+		}
+
+		.framework-eyebrow {
+			color: var(--odps-violet);
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 800;
+			letter-spacing: .08em;
+			margin-bottom: 14px;
+			text-transform: uppercase;
+		}
+
+		.framework-copy h2 {
+			color: var(--odp-ink);
+			font-size: clamp(34px, 4vw, 54px);
+			font-weight: 800;
+			line-height: 1.05;
+			margin-bottom: 20px;
+		}
+
+		.framework-copy p {
+			color: #3c3046;
+			font-size: 18px;
+			line-height: 1.65;
+			margin: 0;
+		}
+
+		.framework-relationship {
+			border-left: 3px solid var(--odps-violet);
+			padding-left: 22px;
+		}
+
+		.framework-relationship strong {
+			color: var(--odp-ink);
+			display: block;
+			font-size: 16px;
+			margin-bottom: 8px;
+		}
+
+		.framework-relationship p {
+			color: #55475f;
+			font-size: 16px;
+			line-height: 1.6;
+			margin: 0;
+		}
+
+		.framework-flow {
+			background: rgba(108, 42, 142, .16);
+			border: 1px solid rgba(108, 42, 142, .16);
+			border-radius: 18px;
+			display: grid;
+			gap: 1px;
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+			overflow: hidden;
+		}
+
+		.framework-step {
+			background: #fff;
+			min-height: 250px;
+			padding: 28px 26px;
+		}
+
+		.framework-step-label {
+			color: var(--odps-violet);
+			display: block;
+			font-size: 13px;
+			font-weight: 800;
+			letter-spacing: .1em;
+			margin-bottom: 26px;
+			text-transform: uppercase;
+		}
+
+		.framework-step h3 {
+			color: var(--odp-ink);
+			font-size: 24px;
+			font-weight: 800;
+			margin-bottom: 12px;
+		}
+
+		.framework-question {
+			color: #3c3046;
+			font-size: 17px;
+			font-weight: 700;
+			line-height: 1.45;
+			margin-bottom: 14px;
+		}
+
+		.framework-purpose {
+			color: #65576f;
+			font-size: 15px;
+			line-height: 1.55;
+			margin: 0;
+		}
+
+		.framework-footer {
+			align-items: center;
+			display: flex;
+			gap: 24px;
+			justify-content: space-between;
+			margin-top: 34px;
+		}
+
+		.framework-meta {
+			color: #65576f;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 1.5;
+			margin: 0;
+		}
+
+		.framework-footer .gobal-btn {
+			margin: 0;
+			width: auto;
+		}
+
 		.agent-section {
 			background: linear-gradient(135deg, var(--odp-ink), #321449 60%, var(--odp-ink));
 			color: #fff;
@@ -1724,6 +1849,16 @@
 			margin-top: auto;
 		}
 
+		@media (min-width: 992px) and (max-width: 1199px) {
+			.nav-item {
+				padding-left: 14px;
+			}
+
+			.nav-item a {
+				font-size: 14px;
+			}
+		}
+
 				@media (max-width: 1199px) {
 					.standards-card-row {
 						grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1737,6 +1872,15 @@
 
 			.standout-grid {
 				grid-template-columns: 1fr;
+			}
+
+			.framework-intro {
+				align-items: start;
+				grid-template-columns: 1fr;
+			}
+
+			.framework-flow {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 
 			.case-grid {
@@ -1811,6 +1955,34 @@
 
 			.topic-learning a {
 				white-space: normal;
+			}
+
+			.framework-intro {
+				gap: 28px;
+				margin-bottom: 30px;
+			}
+
+			.framework-flow {
+				grid-template-columns: 1fr;
+			}
+
+			.framework-step {
+				min-height: 0;
+				padding: 24px 22px;
+			}
+
+			.framework-step-label {
+				margin-bottom: 16px;
+			}
+
+			.framework-footer {
+				align-items: stretch;
+				flex-direction: column;
+			}
+
+			.framework-footer .gobal-btn,
+			.framework-footer .gobal-btn a {
+				width: 100%;
 			}
 
 			.sdk-metrics.sdk-single-metric,
@@ -1923,6 +2095,10 @@
 
 						<li class="nav-item">
 							<a href="#standards">Standards</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="#framework">Framework</a>
 						</li>
 
 						<li class="nav-item">
@@ -2142,6 +2318,56 @@
 						</ul>
 					</div>
 				</article>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-padding framework-section" id="framework">
+		<div class="container">
+			<div class="framework-intro">
+				<div class="framework-copy wow fadeInUp" data-wow-delay=".3s">
+					<span class="framework-eyebrow">Open operating model · Draft v0.2.0</span>
+					<h2>Manage Data Products from Demand to Measurable Value</h2>
+					<p>The Data Product Operating Framework is a universal, vendor-neutral operating model for directing, defining, operating, and assuring data products. It connects business objectives and use cases to product delivery, evidence, and outcomes.</p>
+				</div>
+				<div class="framework-relationship wow fadeInUp" data-wow-delay=".4s">
+					<strong>Framework and standards have different roles</strong>
+					<p>The framework explains how the operating model works. The ODPS standards family provides the interoperable, machine-readable foundation underneath it.</p>
+				</div>
+			</div>
+
+			<div class="framework-flow" aria-label="Data Product Operating Framework functions">
+				<article class="framework-step wow fadeInUp" data-wow-delay=".3s">
+					<span class="framework-step-label">01 · Direction</span>
+					<h3>DIRECT</h3>
+					<p class="framework-question">Why should we do this, and who decides?</p>
+					<p class="framework-purpose">Connect organizational intent to explicit data product investment and accountability.</p>
+				</article>
+				<article class="framework-step wow fadeInUp" data-wow-delay=".4s">
+					<span class="framework-step-label">02 · Definition</span>
+					<h3>DEFINE</h3>
+					<p class="framework-question">What exactly are we committing to provide?</p>
+					<p class="framework-purpose">Turn an approved product candidate into an explicit, governed, machine-readable definition.</p>
+				</article>
+				<article class="framework-step wow fadeInUp" data-wow-delay=".5s">
+					<span class="framework-step-label">03 · Operations</span>
+					<h3>OPERATE</h3>
+					<p class="framework-question">How do we make it available, use it, and change it?</p>
+					<p class="framework-purpose">Make defined products discoverable, accessible, consumable, and manageable.</p>
+				</article>
+				<article class="framework-step wow fadeInUp" data-wow-delay=".6s">
+					<span class="framework-step-label">04 · Assurance</span>
+					<h3>ASSURE</h3>
+					<p class="framework-question">Does it work, comply, and create value?</p>
+					<p class="framework-purpose">Verify that products operate as promised, remain within required boundaries, and produce value.</p>
+				</article>
+			</div>
+
+			<div class="framework-footer">
+				<p class="framework-meta">Core · 14 capabilities · Enterprise and AI-agent-first profiles</p>
+				<div class="gobal-btn theme-btn">
+					<a href="https://opendataproducts.org/framework/" target="_blank" rel="noopener noreferrer">Explore the Operating Framework</a>
+				</div>
 			</div>
 		</div>
 	</section>
