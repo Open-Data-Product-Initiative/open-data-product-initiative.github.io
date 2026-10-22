@@ -407,6 +407,27 @@
 			font-weight: 600;
 		}
 
+		.resource-card .previous-versions {
+			background: #f6f5fb;
+			border-radius: 20px;
+			margin: 0 34px 34px;
+			padding: 20px 24px;
+		}
+
+		.previous-versions h4 {
+			color: #8580a6;
+			font-size: 13px;
+			font-weight: 800;
+			letter-spacing: .12em;
+			margin: 0 0 12px;
+			text-transform: uppercase;
+		}
+
+		.previous-versions a + span {
+			color: #9b98b8;
+			margin: 0 18px;
+		}
+
 		.resource-card.odpc h3 {
 			background: var(--odpc-orange);
 		}
@@ -1919,6 +1940,11 @@
 				padding: 24px 22px;
 			}
 
+			.resource-card .previous-versions {
+				margin: 0 22px 22px;
+				padding: 18px 20px;
+			}
+
 			.standards-card-row {
 				grid-template-columns: 1fr;
 			}
@@ -2208,7 +2234,7 @@
 						<span class="standard-badge badge-odpv">ODPV</span>
 						<h3>Vocabulary</h3>
 						<p><strong>Open Data Product Vocabulary.</strong> Provides the shared terms and semantics used across the standards family.</p>
-						<a href="https://opendataproducts.org/odpv-v1.0/#open-data-product-vocabulary-the-linux-foundation" target="_blank" rel="noopener">Read ODPV 1.0</a>
+						<a href="https://opendataproducts.org/odpv-v1.1/#open-data-product-vocabulary-the-linux-foundation" target="_blank" rel="noopener">Read ODPV 1.1</a>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 mar-bottom wow fadeInUp" data-wow-delay=".7s">
@@ -2472,8 +2498,8 @@
 						<p>Validate, convert, summarize, traverse, analyze, extract agent context, and render graph explorers.</p>
 					</div>
 					<div class="sdk-spec-card odpv">
-						<div class="sdk-spec-count"><strong>5</strong><span>ODPV tools</span></div>
-						<p>Generate vocabulary artifacts, validate terms, search, resolve agent context, and detect cross-spec drift.</p>
+						<div class="sdk-spec-count"><strong>6</strong><span>ODPV tools</span></div>
+						<p>Generate vocabulary artifacts, validate terms and profiles, search, resolve agent context, and detect cross-spec drift.</p>
 					</div>
 					<div class="sdk-spec-card odpr">
 						<div class="sdk-spec-count"><strong>4</strong><span>ODPR tools</span></div>
@@ -2848,19 +2874,23 @@
 				</div>
 				<div class="col-lg-6 mar-bottom wow fadeInUp" data-wow-delay=".6s">
 					<div class="resource-card odpv">
-						<h3>Open Data Product Vocabulary 1.0 (latest)</h3>
+						<h3>Open Data Product Vocabulary 1.1 (latest)</h3>
 						<div class="resource-body">
 							<ul>
-								<li><strong>Latest version:</strong> ODPV 1.0</li>
-								<li><strong>Release date:</strong> 1st Jun 2026</li>
-								<li><strong>Description:</strong> Controlled vocabulary for shared terms, semantics, and relationship language across the family.</li>
-								<li><strong>Vocabulary:</strong> <a href="https://opendataproducts.org/odpv-v1.0/#open-data-product-vocabulary-the-linux-foundation" target="_blank" rel="noopener">See the full vocabulary.</a></li>
-								<li><strong>YAML Vocabulary:</strong> <a href="https://opendataproducts.org/odpv-v1.0/vocab/odpv.yaml" target="_blank" rel="noopener">YAML Vocabulary.</a></li>
-								<li><strong>JSON Vocabulary:</strong> <a href="https://opendataproducts.org/odpv-v1.0/vocab/odpv.json" target="_blank" rel="noopener">JSON Vocabulary.</a></li>
-								<li><strong>Source:</strong> <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0" target="_blank" rel="noopener">See the source files.</a></li>
-								<li><strong>Issues:</strong> <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.0/issues" target="_blank" rel="noopener">See the issues.</a></li>
+								<li><strong>Latest version:</strong> ODPV 1.1</li>
+								<li><strong>Release status:</strong> Stable release</li>
+								<li><strong>Description:</strong> Controlled vocabulary for shared terms, semantics, relationship language, and interoperability profiles across the family.</li>
+								<li><strong>Vocabulary:</strong> <a href="https://opendataproducts.org/odpv-v1.1/#open-data-product-vocabulary-the-linux-foundation" target="_blank" rel="noopener">See the full vocabulary.</a></li>
+								<li><strong>YAML Vocabulary:</strong> <a href="https://opendataproducts.org/odpv-v1.1/vocab/odpv.yaml" target="_blank" rel="noopener">YAML Vocabulary.</a></li>
+								<li><strong>JSON Vocabulary:</strong> <a href="https://opendataproducts.org/odpv-v1.1/vocab/odpv.json" target="_blank" rel="noopener">JSON Vocabulary.</a></li>
+								<li><strong>Source:</strong> <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.1" target="_blank" rel="noopener">See the source files.</a></li>
+								<li><strong>Issues:</strong> <a href="https://github.com/Open-Data-Product-Initiative/odpv-v1.1/issues" target="_blank" rel="noopener">See the issues.</a></li>
 								<li><strong>Knowledge Base:</strong> <a href="https://opendataproducts.org/howto/" target="_blank" rel="noopener">Examples and guidance.</a></li>
 							</ul>
+						</div>
+						<div class="previous-versions" aria-label="Previous ODPV versions">
+							<h4>Previous versions</h4>
+							<a href="https://opendataproducts.org/odpv-v1.0/" target="_blank" rel="noopener">ODPV 1.0</a>
 						</div>
 					</div>
 				</div>
@@ -3259,7 +3289,7 @@
 					<h3>Standards Family</h3>
 					<ul>
 						<li><a href="https://opendataproducts.org/v4.1/" target="_blank">Open Data Product Spec v4.1</a></li>
-						<li><a href="https://opendataproducts.org/odpv-v1.0/" target="_blank">Open Data Product Vocab</a></li>
+						<li><a href="https://opendataproducts.org/odpv-v1.1/" target="_blank">Open Data Product Vocab</a></li>
 						<li><a href="https://opendataproducts.org/odpg-v1.0/" target="_blank">Open Data Product Graphs</a></li>
 						<li><a href="https://opendataproducts.org/odpc-v1.0/" target="_blank">Open Data Product Catalogs</a></li>
 						<li><a href="https://opendataproducts.org/odpr-v1.0/" target="_blank">Open Data Product Recipes (Draft)</a></li>
