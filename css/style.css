@@ -1562,6 +1562,112 @@ footer .container h3 {
   }
 }
 
+/* Adoption proof belongs with the hero, while Linux Foundation governance remains distinct. */
+.hero {
+  height: auto;
+  min-height: 0;
+}
+
+.hero-content {
+  padding: 96px 0 0;
+}
+
+#start-building-CTA {
+  margin-top: 48px;
+}
+
+#hero-lf-logo {
+  margin-top: 92px;
+}
+
+.platforms-building {
+  margin-top: 116px;
+  display: flex;
+  height: 136px;
+  align-items: center;
+  background: #241138;
+  color: #ede6f4;
+}
+
+.platforms-building .container {
+  max-width: 1000px;
+}
+
+.platforms-building__label {
+  margin: 0 0 15px;
+  color: #ede6f4;
+  opacity: 0.92;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.platform-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 24px;
+}
+
+.platform-logo {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.88;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.platform-logo img {
+  display: block;
+  width: auto;
+  max-width: 174px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.platform-logo--alation img {
+  height: 40px;
+}
+
+.platform-logo--dawiso img {
+  height: 43px;
+}
+
+.platform-logo--openmetadata img {
+  height: 47px;
+}
+
+.platform-logo--maysano {
+  gap: 10px;
+}
+
+.platform-logo--maysano img {
+  height: 62px;
+}
+
+.platform-logo--maysano span {
+  color: #ede6f4;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.platform-logo:hover,
+.platform-logo:focus-visible {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.platform-logo:focus-visible {
+  outline: 2px solid #d2ced7;
+  outline-offset: 7px;
+}
+
 /* Stronger glow and soft halo for the hero CTA button */
 #start-building-CTA a {
   position: relative;
