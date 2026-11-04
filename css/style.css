@@ -1668,6 +1668,44 @@ footer .container h3 {
   outline-offset: 7px;
 }
 
+/* Keep navigation subordinate to the hero while preserving a readable brand mark. */
+.header {
+  padding: 4px 0;
+}
+
+.navbar {
+  padding: 5px 1rem !important;
+}
+
+.navbar-brand img {
+  width: 160px;
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .navbar-brand img {
+    width: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 6px 0;
+  }
+
+  .navbar {
+    padding: 6px 1rem !important;
+  }
+
+  .navbar-brand img {
+    width: 120px;
+  }
+}
+
 /* Stronger glow and soft halo for the hero CTA button */
 #start-building-CTA a {
   position: relative;
