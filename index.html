@@ -60,8 +60,10 @@
 			if (tabName === 'fiware') {
 				document.getElementById('fiware-content').style.display = 'block';
 				document.getElementById('xroad-content').style.display = 'none';
+				document.getElementById('openmetadata-content').style.display = 'none';
 				document.getElementById('fiware-link').style.backgroundColor = 'rgba(255,255,255,0.1)';
 				document.getElementById('xroad-link').style.backgroundColor = 'transparent';
+				document.getElementById('openmetadata-link').style.backgroundColor = 'transparent';
 
 				// Update odometers
 				setTimeout(function () {
@@ -80,8 +82,10 @@
 			} else if (tabName === 'xroad') {
 				document.getElementById('fiware-content').style.display = 'none';
 				document.getElementById('xroad-content').style.display = 'block';
+				document.getElementById('openmetadata-content').style.display = 'none';
 				document.getElementById('fiware-link').style.backgroundColor = 'transparent';
 				document.getElementById('xroad-link').style.backgroundColor = 'rgba(255,255,255,0.1)';
+				document.getElementById('openmetadata-link').style.backgroundColor = 'transparent';
 
 				// Update odometers
 				setTimeout(function () {
@@ -96,6 +100,18 @@
 					} catch (e) {
 						console.error("Error updating odometers:", e);
 					}
+				}, 200);
+			} else if (tabName === 'openmetadata') {
+				document.getElementById('fiware-content').style.display = 'none';
+				document.getElementById('xroad-content').style.display = 'none';
+				document.getElementById('openmetadata-content').style.display = 'block';
+				document.getElementById('fiware-link').style.backgroundColor = 'transparent';
+				document.getElementById('xroad-link').style.backgroundColor = 'transparent';
+				document.getElementById('openmetadata-link').style.backgroundColor = 'rgba(255,255,255,0.1)';
+
+				setTimeout(function () {
+					var deploymentsEl = document.getElementById("enterprise-deployments-count");
+					if (deploymentsEl) deploymentsEl.innerHTML = '4,000';
 				}, 200);
 			}
 		}
@@ -1402,6 +1418,24 @@
 			font-weight: 800 !important;
 		}
 
+		@media (min-width: 992px) and (max-width: 1199px) {
+			#partnership .custom-tabs a {
+				font-size: 13px !important;
+			}
+		}
+
+		@media (min-width: 768px) and (max-width: 991px) {
+			#partnership .custom-tabs a {
+				font-size: 8px !important;
+			}
+		}
+
+		@media (max-width: 767px) {
+			#partnership .custom-tabs a {
+				font-size: 18px !important;
+			}
+		}
+
 		#partnership .tab-content .col-lg-4 > div {
 			background: #fff !important;
 			border: 1px solid rgba(108, 42, 142, .12);
@@ -2537,21 +2571,30 @@
 						style="display: flex; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px; position: relative; z-index: 100;">
 
 						<!-- Simple links with higher z-index -->
-						<div style="width: 50%; padding: 0 5px; text-align: center; position: relative; z-index: 101;">
+						<div style="width: 33.333%; padding: 0 5px; text-align: center; position: relative; z-index: 101;">
 							<a href="#"
-								style="display: inline-block; width: 100%; padding: 15px 10px; color: white; background-color: rgba(255,255,255,0.1); border-radius: 8px; font-size: 18px; font-weight: bold; text-decoration: none; position: relative; z-index: 102;"
-								onclick="document.getElementById('fiware-content').style.display='block'; document.getElementById('xroad-content').style.display='none'; this.style.backgroundColor='rgba(255,255,255,0.1)'; document.getElementById('xroad-link').style.backgroundColor='transparent'; document.getElementById('smart-cities-count').innerHTML='350'; document.getElementById('startups-count').innerHTML='1000'; document.getElementById('hubs-count').innerHTML='40'; return false;"
+								style="display: inline-block; width: 100%; padding: 15px 10px; color: white; background-color: rgba(255,255,255,0.1); border-radius: 8px; font-size: 18px; font-weight: bold; text-decoration: none; white-space: nowrap; position: relative; z-index: 102;"
+								onclick="switchTab('fiware'); return false;"
 								id="fiware-link">
 								Scaling Smart City Interoperability
 							</a>
 						</div>
 
-						<div style="width: 50%; padding: 0 5px; text-align: center; position: relative; z-index: 101;">
+						<div style="width: 33.333%; padding: 0 5px; text-align: center; position: relative; z-index: 101;">
 							<a href="#"
-								style="display: inline-block; width: 100%; padding: 15px 10px; color: white; background-color: transparent; border-radius: 8px; font-size: 18px; font-weight: bold; text-decoration: none; position: relative; z-index: 102;"
-								onclick="document.getElementById('fiware-content').style.display='none'; document.getElementById('xroad-content').style.display='block'; this.style.backgroundColor='rgba(255,255,255,0.1)'; document.getElementById('fiware-link').style.backgroundColor='transparent'; document.getElementById('countries-count').innerHTML='160'; document.getElementById('users-count').innerHTML='542'; document.getElementById('ecosystems-count').innerHTML='25'; return false;"
+								style="display: inline-block; width: 100%; padding: 15px 10px; color: white; background-color: transparent; border-radius: 8px; font-size: 18px; font-weight: bold; text-decoration: none; white-space: nowrap; position: relative; z-index: 102;"
+								onclick="switchTab('xroad'); return false;"
 								id="xroad-link">
 								Enabling Government Data Exchange
+							</a>
+						</div>
+
+						<div style="width: 33.333%; padding: 0 5px; text-align: center; position: relative; z-index: 101;">
+							<a href="#"
+								style="display: inline-block; width: 100%; padding: 15px 10px; color: white; background-color: transparent; border-radius: 8px; font-size: 18px; font-weight: bold; text-decoration: none; white-space: nowrap; position: relative; z-index: 102;"
+								onclick="switchTab('openmetadata'); return false;"
+								id="openmetadata-link">
+								OpenMetadata supports ODPS
 							</a>
 						</div>
 					</div>
@@ -2567,7 +2610,7 @@
 						<div class="col-lg-4 col-md-4 mb-4">
 							<div style="background-color: white; border-radius: 15px; padding: 30px 15px;">
 								<div style="font-size: 65px; color: #6c2a8e; font-weight: bold; line-height: 1;">
-									<span id="smart-cities-count" class="odometer">0</span><span
+									<span id="smart-cities-count" class="odometer" data-count="350">0</span><span
 										class="odometer-prefix"
 										style="font-size: 40px; vertical-align: middle; position: relative;">+</span>
 								</div>
@@ -2579,7 +2622,7 @@
 						<div class="col-lg-4 col-md-4 mb-4">
 							<div style="background-color: white; border-radius: 15px; padding: 30px 15px;">
 								<div style="font-size: 65px; color: #6c2a8e; font-weight: bold; line-height: 1;">
-									<span id="startups-count" class="odometer">0</span><span
+									<span id="startups-count" class="odometer" data-count="1000" data-formatted="1,000">0</span><span
 										class="odometer-prefix"
 										style="font-size: 40px; vertical-align: middle; position: relative;">+</span>
 								</div>
@@ -2591,7 +2634,7 @@
 						<div class="col-lg-4 col-md-4 mb-4">
 							<div style="background-color: white; border-radius: 15px; padding: 30px 15px;">
 								<div style="font-size: 65px; color: #6c2a8e; font-weight: bold; line-height: 1;">
-									<span id="hubs-count" class="odometer">0</span><span
+									<span id="hubs-count" class="odometer" data-count="40">0</span><span
 										class="odometer-prefix"
 										style="font-size: 40px; vertical-align: middle; position: relative;">+</span>
 								</div>
@@ -2599,6 +2642,7 @@
 									INNOVATION HUBS</div>
 							</div>
 						</div>
+
 					</div>
 
 					<div class="row mt-5 mb-4">
@@ -2672,6 +2716,63 @@
 							<div class="partnership-cta">
 								<a href="#CoreTeam" class="btn btn-outline-light btn-lg">Interested in government data
 									exchange solutions?</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- OpenMetadata Tab Content -->
+				<div class="tab-content" id="openmetadata-content" style="display: none;">
+					<div class="row text-center justify-content-center">
+						<div class="col-lg-4 col-md-6 mb-4">
+							<div style="background-color: white; border-radius: 15px; padding: 30px 15px;">
+								<div style="font-size: 65px; color: #6c2a8e; font-weight: bold; line-height: 1;">
+									<span id="enterprise-deployments-count" class="odometer">4,000</span><span
+										class="odometer-prefix"
+										style="font-size: 40px; vertical-align: middle; position: relative;">+</span>
+								</div>
+								<div style="color: #000; font-weight: bold; margin-top: 10px; font-size: 20px;">ENTERPRISE
+									DEPLOYMENTS</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6 mb-4">
+							<div style="background-color: white; border-radius: 15px; padding: 30px 15px;">
+								<div style="font-size: 65px; color: #6c2a8e; font-weight: bold; line-height: 1;">
+									<span class="odometer">14,000</span><span class="odometer-prefix"
+										style="font-size: 40px; vertical-align: middle; position: relative;">+</span>
+								</div>
+								<div style="color: #000; font-weight: bold; margin-top: 10px; font-size: 20px;">OPEN SOURCE
+									MEMBERS</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6 mb-4">
+							<div style="background-color: white; border-radius: 15px; padding: 30px 15px;">
+								<div style="font-size: 65px; color: #6c2a8e; font-weight: bold; line-height: 1;">
+									<span class="odometer">500</span><span class="odometer-prefix"
+										style="font-size: 40px; vertical-align: middle; position: relative;">+</span>
+								</div>
+								<div style="color: #000; font-weight: bold; margin-top: 10px; font-size: 20px;">CODE
+									CONTRIBUTORS</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row mt-5 mb-4">
+						<div class="col-12 d-flex justify-content-center align-items-center" style="gap: 50px;">
+							<img src="images/loog-2025.png" alt="ODPS Logo"
+								style="max-width: 180px; height: auto; filter: brightness(0) invert(1);">
+							<img src="images/platforms/openmetadata.webp" alt="OpenMetadata Logo"
+								style="width: 225px; max-width: 100%; height: auto; filter: brightness(0) invert(1);">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12 text-center mt-3">
+							<div class="partnership-cta">
+								<a href="#CoreTeam" class="btn btn-outline-light btn-lg">Reach out to forge an exciting
+									partnership!</a>
 							</div>
 						</div>
 					</div>
