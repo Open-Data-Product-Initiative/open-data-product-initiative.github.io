@@ -1723,6 +1723,63 @@
 				padding: 28px;
 			}
 
+		.core-team-mate .team-iteam {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			width: calc((100% - 84px) / 4);
+		}
+
+		.core-team-mate .team-iteam > img,
+		.core-team-mate .team-photo-placeholder {
+			flex: 0 0 120px;
+			height: 120px;
+			margin-top: -100px;
+			object-fit: cover;
+			width: 120px;
+		}
+
+		.core-team-mate .icon-linkedin {
+			margin-top: auto;
+		}
+
+		.team-photo-placeholder {
+			align-items: center;
+			background: #f1e8f5;
+			border: 6px solid #fff;
+			border-radius: 50%;
+			box-shadow: 0 18px 38px rgba(30, 10, 46, .16);
+			color: var(--odps-violet);
+			display: inline-flex;
+			font-size: 30px;
+			font-weight: 700;
+			height: 120px;
+			justify-content: center;
+			margin-top: -100px;
+			width: 120px;
+		}
+
+		@media (max-width: 988px) {
+			.core-team-mate .team-iteam {
+				width: calc((100% - 28px) / 2);
+			}
+		}
+
+		@media (max-width: 620px) {
+			.core-team-mate {
+				margin-top: 80px;
+			}
+
+			.core-team-mate .team-iteam {
+				margin-bottom: 76px;
+				width: 100%;
+			}
+
+			.core-team-mate .team-iteam:last-child {
+				margin-bottom: 46px;
+			}
+		}
+
 					.advisor-mate .team-iteam {
 						width: calc(33.333% - 28px);
 					}
@@ -3238,9 +3295,9 @@
 
 	<section class="section-padding" id="CoreTeam">
 		<div class="container">
-				<h2>Maintainers</h2>
+				<h2>Core Operational Group</h2>
 			<p>The Open Data Products standards family is developed and maintained by people working across data products, governance, interoperability, AI readiness, and open standards.</p>
-				<div class="team-mate">
+				<div class="team-mate core-team-mate">
 				<div class="team-iteam wow fadeInUp" data-wow-delay=".3s">
 					<img src="images/team-1.png" alt="">
 					<p><strong>Dr. Jarkko Moilanen</strong><br>
@@ -3252,7 +3309,7 @@
 
 				<div class="team-iteam wow fadeInUp" data-wow-delay=".5s">
 					<img src="images/manfred.png" alt="">
-					<p><strong>Manfred Sorg of ODPS</strong><br>
+					<p><strong>Manfred Sorg</strong><br>
 						Maintainer</p>
 					<div class="icon-linkedin">
 						<a href="https://www.linkedin.com/in/manfred-sorg/"><img src="images/linkedin.png"
@@ -3269,6 +3326,14 @@
 						<a href="https://www.linkedin.com/in/zaher-abou-shakra/"><img src="images/linkedin.png"
 								alt=""></a>
 					</div>
+					</div>
+					<div class="team-iteam wow fadeInUp" data-wow-delay="1.5s">
+						<span class="team-photo-placeholder" aria-hidden="true">NH</span>
+						<p><strong>Nazia Hasan</strong><br>
+							Product Experience Lead</p>
+						<div class="icon-linkedin">
+							<a href="https://www.linkedin.com/in/naziahasan/" aria-label="Nazia Hasan on LinkedIn"><img src="images/linkedin.png" alt=""></a>
+						</div>
 					</div>
 					</div>
 						<h2>Industry Ambassadors and Advisors</h2>
@@ -3394,12 +3459,13 @@
 							src="https://www.bestpractices.dev/projects/10024/badge"></a>
 					<br/><br/>
 					<h5>
-						Maintainers
+						Core Operational Group
 					</h5>
 					<ul> 
 						<li><a href="https://www.linkedin.com/in/jarkkomoilanen/">Jarkko Moilanen (igniter)</a></li>
 						<li><a href="https://www.linkedin.com/in/manfred-sorg/">Manfred Sorg</a></li>
 						<li><a href="https://www.linkedin.com/in/zaher-abou-shakra/">Zaher Abou Shakra</a></li>
+						<li><a href="https://www.linkedin.com/in/naziahasan/">Nazia Hasan</a></li>
 					</ul>
 					
 				</div>
