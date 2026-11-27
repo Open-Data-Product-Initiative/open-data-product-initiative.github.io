@@ -1729,8 +1729,7 @@
 			width: calc((100% - 84px) / 4);
 		}
 
-		.core-team-mate .team-iteam > img,
-		.core-team-mate .team-photo-placeholder {
+		.core-team-mate .team-iteam > img {
 			flex: 0 0 120px;
 			height: 120px;
 			margin-top: -100px;
@@ -1742,20 +1741,10 @@
 			margin-top: auto;
 		}
 
-		.team-photo-placeholder {
-			align-items: center;
-			background: #f1e8f5;
-			border: 6px solid #fff;
-			border-radius: 50%;
-			box-shadow: 0 18px 38px rgba(30, 10, 46, .16);
-			color: var(--odps-violet);
-			display: inline-flex;
-			font-size: 30px;
-			font-weight: 700;
-			height: 120px;
-			justify-content: center;
-			margin-top: -100px;
-			width: 120px;
+		.core-team-mate .team-iteam > img.nazia-photo {
+			background: #ffb000;
+			object-position: center 35%;
+			padding: 3px;
 		}
 
 		@media (max-width: 988px) {
@@ -3327,7 +3316,7 @@
 					</div>
 					</div>
 					<div class="team-iteam wow fadeInUp" data-wow-delay="1.5s">
-						<span class="team-photo-placeholder" aria-hidden="true">NH</span>
+						<img class="nazia-photo" src="images/nazia-hasan.jpg" alt="Nazia Hasan">
 						<p><strong>Nazia Hasan</strong><br>
 							Product Experience Lead</p>
 						<div class="icon-linkedin">
