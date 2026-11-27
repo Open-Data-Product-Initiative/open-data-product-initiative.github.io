@@ -2,9 +2,7 @@ $(document).ready(function () {
   $('.owl-carousel').owlCarousel({
     items: 3,
     loop: true,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
+    autoplay: false,
     nav: false,
     margin: 30,
     responsive: {
@@ -30,9 +28,6 @@ $(document).ready(function () {
   $('.custom-nav .next').click(function () {
     $('.owl-carousel').trigger('next.owl.carousel');
   });
-
-  // Animation
-  new WOW().init();
 
   // Flag to track if odometers have been animated
   var odometersAnimated = false;
@@ -194,7 +189,7 @@ $(document).ready(function () {
 
       window.scrollTo({
         top: targetElement.offsetTop - 80, // 80px offset for header
-        behavior: 'smooth'
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
       });
     });
   });
